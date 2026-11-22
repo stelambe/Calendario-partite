@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-22T18:31:50+00:00",
+ "aggiornato": "2026-11-22T18:41:29+00:00",
  "problemi": [
   {
    "squadra": "Arcus Volley Oro U11",
@@ -15,7 +15,7 @@
   },
   {
    "squadra": "Arcus Volley blu U12",
-   "messaggio": "categoria 'U12' non trovata"
+   "messaggio": "Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"div[role=\\\"combobox\\\"][aria-labelledby=\\\"available-categorie\\\"]\")\n    - locator reso"
   },
   {
    "squadra": "Arcus Volley blu U13",
