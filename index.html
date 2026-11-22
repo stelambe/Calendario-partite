@@ -170,6 +170,12 @@ async function load(){
     const r = await fetch('data/partite.json?t=' + Date.now(), {cache: 'no-store'});
     if (!r.ok) throw new Error(r.status);
     D = await r.json();
+    // squadre "nascoste": visibili solo aprendo l'indirizzo con ?tuo in fondo
+    if (!new URLSearchParams(location.search).has('tuo')) {
+      const nasc = new Set(D.squadre.filter(s => s.nascosta).map(s => s.id));
+      D.squadre = D.squadre.filter(s => !nasc.has(s.id));
+      D.partite = D.partite.filter(p => !nasc.has(p.id));
+    }
   } catch (e) {
     $('#view').innerHTML = `<div class="panel empty"><h2>Dati non disponibili</h2><p>Non riesco a leggere i calendari. Se l'app è appena stata creata, attendi il primo aggiornamento automatico.</p></div>`;
     return;

@@ -653,7 +653,7 @@ def main():
     DATI.write_text(json.dumps({
         "aggiornato": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "problemi": problemi,
-        "squadre": [{k: s[k] for k in ("id", "nome", "serie", "url")} for s in squadre],
+        "squadre": [{k: s[k] for k in ("id", "nome", "serie", "url", "nascosta") if k in s} for s in squadre],
         "partite": partite,
     }, ensure_ascii=False, indent=1), encoding="utf-8")
     if pgs_info["categorie"] or pgs_info["squadre"]:

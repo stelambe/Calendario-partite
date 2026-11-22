@@ -1,5 +1,5 @@
 [
-  {"id": "garbagnate-1df", "nome": "O.s.l. Volley Garbagnate", "serie": "1DF", "url": "https://www.sol.milano.federvolley.it/calendarioris/1001225/2026"},
+  {"id": "garbagnate-1df", "nome": "O.s.l. Volley Garbagnate", "serie": "1DF", "url": "https://www.sol.milano.federvolley.it/calendarioris/1001225/2026", "nascosta": true},
   {"id": "arcus-1jf", "nome": "Arcus Volley", "serie": "1JF", "url": "https://www.sol.milano.federvolley.it/calendarioris/1001226/2026"},
   {"id": "usob-2df", "nome": "Usob Sinergy", "serie": "2DF", "url": "https://www.sol.milano.federvolley.it/calendarioris/1001228/2026"},
   {"id": "arcus-19f", "nome": "Arcus Volley", "serie": "19F", "url": "https://www.sol.milano.federvolley.it/calendarioris/1001237/2026"},
