@@ -319,15 +319,35 @@ def elenco_squadre(page):
     return []
 
 
-JS_TESTO_PAGINA = "() => document.body.innerText"
+JS_DIALOGO = """
+() => { const d = document.querySelector('[role="dialog"]'); return d ? d.innerText : ''; }
+"""
+SCARTA_DIALOGO = ("campo di gioco", "visualizza su google maps", "chiudi")
 
 
-def righe_testo(page):
-    return {l.strip() for l in page.evaluate(JS_TESTO_PAGINA).split("\n") if l.strip()}
+def chiudi_dialogo(page):
+    try:
+        page.get_by_role("button", name=re.compile("chiudi", re.I)).first.click(timeout=3000)
+    except Exception:
+        page.keyboard.press("Escape")
+    try:
+        page.wait_for_selector('[role="dialog"]', state="detached", timeout=4000)
+    except Exception:
+        pass
+
+
+def spezza_luogo(testo):
+    """'PALA ARLUNO - VIA ENRICO TOTI 2 - ARLUNO' -> ('PALA ARLUNO', 'ARLUNO - VIA ENRICO TOTI 2')"""
+    parti = [x.strip() for x in testo.split(" - ") if x.strip()]
+    if len(parti) >= 3:
+        return parti[0], f"{parti[-1]} - {' - '.join(parti[1:-1])}"
+    if len(parti) == 2:
+        return parti[0], parti[1]
+    return "", testo
 
 
 def leggi_indirizzi(page, squadra, partite):
-    """Nella tabella PGS l'indirizzo e dietro un'icona a spillo: si clicca e si legge cio che compare."""
+    """Nella tabella PGS il luogo e dietro un'icona a spillo: si clicca, si legge la finestra 'Campo di gioco' e si chiude."""
     primo = True
     for p in partite:
         if not (corrisponde(squadra["nome"], p["casa"]) or corrisponde(squadra["nome"], p["ospite"])):
@@ -337,22 +357,19 @@ def leggi_indirizzi(page, squadra, partite):
             icona = cella.locator("svg, button").first
             if icona.count() == 0:
                 continue
-            prima = righe_testo(page)
-            icona.click(timeout=4000)
-            page.wait_for_timeout(700)
-            nuove = [l for l in page.evaluate(JS_TESTO_PAGINA).split("\n") if l.strip() and l.strip() not in prima]
+            icona.click(timeout=5000)
+            page.wait_for_selector('[role="dialog"]', timeout=5000)
+            righe = [l.strip() for l in page.evaluate(JS_DIALOGO).split("\n")
+                     if l.strip() and l.strip().lower() not in SCARTA_DIALOGO]
             if primo:
                 salva_debug(page, f"{squadra['id']}-spillo")
                 primo = False
-            p["indirizzo"] = " - ".join(l.strip() for l in nuove)[:200]
-            chiudi_lista(page)
-            page.wait_for_timeout(300)
+            if righe:
+                p["campo"], p["indirizzo"] = spezza_luogo(righe[0])
         except Exception as e:
-            print(f"  indirizzo non letto: {str(e)[:100]}")
-            try:
-                chiudi_lista(page)
-            except Exception:
-                pass
+            print(f"  luogo non letto (gara {p.get('gara')}): {str(e)[:100]}")
+        finally:
+            chiudi_dialogo(page)
 
 
 def pgs_righe(tab):
