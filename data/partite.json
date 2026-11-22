@@ -1,6 +1,43 @@
 {
- "aggiornato": "",
- "problemi": [],
+ "aggiornato": "2026-11-22T16:23:17+00:00",
+ "problemi": [
+  {
+   "squadra": "O.s.l. Volley Garbagnate 1DF",
+   "messaggio": "sito non raggiungibile, mostro i dati dell'ultimo aggiornamento riuscito"
+  },
+  {
+   "squadra": "Arcus Volley 1JF",
+   "messaggio": "sito non raggiungibile, mostro i dati dell'ultimo aggiornamento riuscito"
+  },
+  {
+   "squadra": "Usob Sinergy 2DF",
+   "messaggio": "sito non raggiungibile, mostro i dati dell'ultimo aggiornamento riuscito"
+  },
+  {
+   "squadra": "Arcus Volley 19F",
+   "messaggio": "sito non raggiungibile, mostro i dati dell'ultimo aggiornamento riuscito"
+  },
+  {
+   "squadra": "Arcus Volley 17F",
+   "messaggio": "sito non raggiungibile, mostro i dati dell'ultimo aggiornamento riuscito"
+  },
+  {
+   "squadra": "Arcus Volley 15F",
+   "messaggio": "sito non raggiungibile, mostro i dati dell'ultimo aggiornamento riuscito"
+  },
+  {
+   "squadra": "Arcus Volley 14F",
+   "messaggio": "sito non raggiungibile, mostro i dati dell'ultimo aggiornamento riuscito"
+  },
+  {
+   "squadra": "Arcus Volley blu 13F",
+   "messaggio": "sito non raggiungibile, mostro i dati dell'ultimo aggiornamento riuscito"
+  },
+  {
+   "squadra": "Arcus Volley oro 13F",
+   "messaggio": "sito non raggiungibile, mostro i dati dell'ultimo aggiornamento riuscito"
+  }
+ ],
  "squadre": [
   {
    "id": "garbagnate-1df",
