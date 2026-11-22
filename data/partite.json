@@ -1,11 +1,6 @@
 {
- "aggiornato": "2026-11-22T20:32:13+00:00",
- "problemi": [
-  {
-   "squadra": "Landoil Arcus Volley Serie DF",
-   "messaggio": "Page.wait_for_selector: Timeout 45000ms exceeded.\nCall log:\n  - waiting for locator(\"tr.match[data-mid]\")\n"
-  }
- ],
+ "aggiornato": "2026-11-22T20:48:43+00:00",
+ "problemi": [],
  "squadre": [
   {
    "id": "garbagnate-1df",
@@ -274,6 +269,18 @@
    "indirizzo": "PADERNO DUGNANO - CALDERARA - VIA CHOPIN"
   },
   {
+   "id": "lombardia-dfg",
+   "squadra": "Landoil Arcus Volley",
+   "serie": "Serie DF",
+   "gara": "2561",
+   "data": "2026-10-24",
+   "ora": "20:30",
+   "casa_trasferta": "Casa",
+   "avversario": "BANCA CREMASCA E MANTOVANA (PG)",
+   "campo": "PALESTRA E. TOTI",
+   "indirizzo": "ARLUNO - VIA E. TOTI"
+  },
+  {
    "id": "pgs-u12-blu",
    "squadra": "Arcus Volley blu",
    "serie": "U12",
@@ -454,6 +461,18 @@
    "indirizzo": "RHO - VIA S. DI GIACOMO"
   },
   {
+   "id": "lombardia-dfg",
+   "squadra": "Landoil Arcus Volley",
+   "serie": "Serie DF",
+   "gara": "2568",
+   "data": "2026-11-01",
+   "ora": "20:30",
+   "casa_trasferta": "Trasferta",
+   "avversario": "CERTOSA VOLLEY DF (SU)",
+   "campo": "PALESTRA COMUNALE",
+   "indirizzo": "CERTOSA DI PAVIA - VIA TOGLIATTI 12"
+  },
+  {
    "id": "pgs-mista2-cusago",
    "squadra": "New VMNP Cusago",
    "serie": "Mista 2° livello",
@@ -548,6 +567,18 @@
    "avversario": "NUMIA VISCONTINI GIALLA",
    "campo": "PALAZZETTO VISCONTINI",
    "indirizzo": "MILANO - VIA VISCONTINI 7 A/B"
+  },
+  {
+   "id": "lombardia-dfg",
+   "squadra": "Landoil Arcus Volley",
+   "serie": "Serie DF",
+   "gara": "2574",
+   "data": "2026-11-07",
+   "ora": "20:30",
+   "casa_trasferta": "Casa",
+   "avversario": "ASD GROSSMAN",
+   "campo": "PALESTRA E. TOTI",
+   "indirizzo": "ARLUNO - VIA E. TOTI"
   },
   {
    "id": "arcus-13f-oro",
@@ -802,6 +833,18 @@
    "indirizzo": "CUSAGO - VIA IV NOVEMBRE"
   },
   {
+   "id": "lombardia-dfg",
+   "squadra": "Landoil Arcus Volley",
+   "serie": "Serie DF",
+   "gara": "2582",
+   "data": "2026-11-15",
+   "ora": "18:00",
+   "casa_trasferta": "Trasferta",
+   "avversario": "UIV ACADEMY F",
+   "campo": "PALAZZETTO DELLO SPORT PICCOLE PAVESI.",
+   "indirizzo": "PAVIA - VIA TREVES 24"
+  },
+  {
    "id": "pgs-mista2-cusago",
    "squadra": "New VMNP Cusago",
    "serie": "Mista 2° livello",
@@ -908,6 +951,18 @@
    "avversario": "PALLAVOLO CANEGRATE",
    "campo": "PALA ARLUNO",
    "indirizzo": "ARLUNO - VIA ENRICO TOTI 4"
+  },
+  {
+   "id": "lombardia-dfg",
+   "squadra": "Landoil Arcus Volley",
+   "serie": "Serie DF",
+   "gara": "2588",
+   "data": "2026-11-21",
+   "ora": "20:30",
+   "casa_trasferta": "Casa",
+   "avversario": "MARSINA POLISPORTIVA SAN GIULIANO",
+   "campo": "PALESTRA E. TOTI",
+   "indirizzo": "ARLUNO - VIA E. TOTI"
   },
   {
    "id": "pgs-u12-oro",
@@ -1138,6 +1193,18 @@
    "indirizzo": "CUSAGO - VIA IV NOVEMBRE"
   },
   {
+   "id": "lombardia-dfg",
+   "squadra": "Landoil Arcus Volley",
+   "serie": "Serie DF",
+   "gara": "2598",
+   "data": "2026-11-29",
+   "ora": "18:00",
+   "casa_trasferta": "Trasferta",
+   "avversario": "FERLOG NEW VOLLEY PROJECT VIZZOLO (PG)",
+   "campo": "PALAZZETTO DELLO SPORT",
+   "indirizzo": "VIZZOLO PREDABISSI - VIA VERDI 16"
+  },
+  {
    "id": "arcus-19f",
    "squadra": "Arcus Volley",
    "serie": "19F",
@@ -1160,6 +1227,18 @@
    "avversario": "AURORA OSGB",
    "campo": "",
    "indirizzo": ""
+  },
+  {
+   "id": "lombardia-dfg",
+   "squadra": "Landoil Arcus Volley",
+   "serie": "Serie DF",
+   "gara": "2604",
+   "data": "2026-12-04",
+   "ora": "21:00",
+   "casa_trasferta": "Casa",
+   "avversario": "MC TERMOELETTRICA",
+   "campo": "PALESTRA E. TOTI",
+   "indirizzo": "ARLUNO - VIA E. TOTI"
   },
   {
    "id": "arcus-1jf",
@@ -1316,6 +1395,18 @@
    "avversario": "LOVVEY TEAM BLACK",
    "campo": "PALA ARLUNO",
    "indirizzo": "ARLUNO - VIA ENRICO TOTI 4"
+  },
+  {
+   "id": "lombardia-dfg",
+   "squadra": "Landoil Arcus Volley",
+   "serie": "Serie DF",
+   "gara": "2612",
+   "data": "2026-12-12",
+   "ora": "17:00",
+   "casa_trasferta": "Trasferta",
+   "avversario": "BOCCONI SPORT F",
+   "campo": "BOCCONI SPORT CENTER",
+   "indirizzo": "MILANO - VIA TOSCANA, 30"
   },
   {
    "id": "pgs-u11-blu",
@@ -1486,6 +1577,18 @@
    "indirizzo": "ARLUNO - VIA ENRICO TOTI 4"
   },
   {
+   "id": "lombardia-dfg",
+   "squadra": "Landoil Arcus Volley",
+   "serie": "Serie DF",
+   "gara": "2618",
+   "data": "2026-12-19",
+   "ora": "20:30",
+   "casa_trasferta": "Casa",
+   "avversario": "PGC CILAVEGNA",
+   "campo": "PALESTRA E. TOTI",
+   "indirizzo": "ARLUNO - VIA E. TOTI"
+  },
+  {
    "id": "pgs-u11-oro",
    "squadra": "Arcus Volley Oro",
    "serie": "U11",
@@ -1642,6 +1745,18 @@
    "indirizzo": ""
   },
   {
+   "id": "lombardia-dfg",
+   "squadra": "Landoil Arcus Volley",
+   "serie": "Serie DF",
+   "gara": "2627",
+   "data": "2027-01-09",
+   "ora": "20:30",
+   "casa_trasferta": "Trasferta",
+   "avversario": "ANECO VISETTE VOLLEY DF - SU (SU)",
+   "campo": "SCUOLA ELEMENTARE VIGHIGNOLO",
+   "indirizzo": "SETTIMO MILANESE - VIA AIRAGHI"
+  },
+  {
    "id": "pgs-u12-oro",
    "squadra": "Arcus Volley Oro",
    "serie": "U12",
@@ -1774,6 +1889,18 @@
    "indirizzo": "CANEGRATE - VIA ENRICO TOTI"
   },
   {
+   "id": "lombardia-dfg",
+   "squadra": "Landoil Arcus Volley",
+   "serie": "Serie DF",
+   "gara": "2630",
+   "data": "2027-01-16",
+   "ora": "20:00",
+   "casa_trasferta": "Trasferta",
+   "avversario": "PROGETTO VOLLEY LAINATE DF",
+   "campo": "SCUOLE MEDIE WALTER TOBAGI",
+   "indirizzo": "LAINATE - VIA CAIROLI 33"
+  },
+  {
    "id": "arcus-13f-oro",
    "squadra": "Arcus Volley oro",
    "serie": "13F",
@@ -1894,6 +2021,18 @@
    "indirizzo": "CANEGRATE - VIA ENRICO TOTI"
   },
   {
+   "id": "lombardia-dfg",
+   "squadra": "Landoil Arcus Volley",
+   "serie": "Serie DF",
+   "gara": "2637",
+   "data": "2027-01-23",
+   "ora": "20:30",
+   "casa_trasferta": "Casa",
+   "avversario": "SSD BASIGLIO VOLLEY",
+   "campo": "PALESTRA E. TOTI",
+   "indirizzo": "ARLUNO - VIA E. TOTI"
+  },
+  {
    "id": "arcus-19f",
    "squadra": "Arcus Volley",
    "serie": "19F",
@@ -1976,6 +2115,18 @@
    "avversario": "VOMIEN SS MARTIRI",
    "campo": "PALA ARLUNO",
    "indirizzo": "ARLUNO - VIA ENRICO TOTI 4"
+  },
+  {
+   "id": "lombardia-dfg",
+   "squadra": "Landoil Arcus Volley",
+   "serie": "Serie DF",
+   "gara": "2554",
+   "data": "2027-01-30",
+   "ora": "21:15",
+   "casa_trasferta": "Trasferta",
+   "avversario": "SANT'ALBERTO ATLAS",
+   "campo": "PALAZZETTO COMUNALE",
+   "indirizzo": "SAN MARTINO IN STRADA - VIA MATTEI 7"
   },
   {
    "id": "arcus-13f-blu",
@@ -2086,6 +2237,18 @@
    "indirizzo": "ARLUNO - VIA ENRICO TOTI 4"
   },
   {
+   "id": "lombardia-dfg",
+   "squadra": "Landoil Arcus Volley",
+   "serie": "Serie DF",
+   "gara": "2721",
+   "data": "2027-02-06",
+   "ora": "20:30",
+   "casa_trasferta": "Casa",
+   "avversario": "PROGETTO VOLLEY LAINATE DF",
+   "campo": "PALESTRA E. TOTI",
+   "indirizzo": "ARLUNO - VIA E. TOTI"
+  },
+  {
    "id": "usob-2df",
    "squadra": "Usob Sinergy",
    "serie": "2DF",
@@ -2120,6 +2283,18 @@
    "avversario": "ASD ASS. GENITORI SCUOLE",
    "campo": "SCUOLA MEDIA GRAMSCI",
    "indirizzo": "MILANO - VIA FRANCO TOSI 21"
+  },
+  {
+   "id": "lombardia-dfg",
+   "squadra": "Landoil Arcus Volley",
+   "serie": "Serie DF",
+   "gara": "2645",
+   "data": "2027-02-13",
+   "ora": "20:30",
+   "casa_trasferta": "Casa",
+   "avversario": "SANT'ALBERTO ATLAS",
+   "campo": "PALESTRA E. TOTI",
+   "indirizzo": "ARLUNO - VIA E. TOTI"
   },
   {
    "id": "arcus-13f-blu",
@@ -2170,6 +2345,18 @@
    "indirizzo": "TREZZANO SUL NAVIGLIO - VIA MORONA ANG. TINTORETTO 6"
   },
   {
+   "id": "lombardia-dfg",
+   "squadra": "Landoil Arcus Volley",
+   "serie": "Serie DF",
+   "gara": "2652",
+   "data": "2027-02-20",
+   "ora": "20:00",
+   "casa_trasferta": "Trasferta",
+   "avversario": "BANCA CREMASCA E MANTOVANA (PG)",
+   "campo": "PALAZZETTO DELLO SPORT P. BERTONI",
+   "indirizzo": "CREMA - VIA SINIGAGLIA 6"
+  },
+  {
    "id": "arcus-13f-oro",
    "squadra": "Arcus Volley oro",
    "serie": "13F",
@@ -2218,6 +2405,18 @@
    "indirizzo": "SAN GIORGIO SU LEGNANO - VIA XXV APRILE 4"
   },
   {
+   "id": "lombardia-dfg",
+   "squadra": "Landoil Arcus Volley",
+   "serie": "Serie DF",
+   "gara": "2659",
+   "data": "2027-02-27",
+   "ora": "20:30",
+   "casa_trasferta": "Casa",
+   "avversario": "CERTOSA VOLLEY DF (SU)",
+   "campo": "PALESTRA E. TOTI",
+   "indirizzo": "ARLUNO - VIA E. TOTI"
+  },
+  {
    "id": "usob-2df",
    "squadra": "Usob Sinergy",
    "serie": "2DF",
@@ -2254,6 +2453,18 @@
    "indirizzo": "CUSANO MILANINO - VIALE ROMA 2"
   },
   {
+   "id": "lombardia-dfg",
+   "squadra": "Landoil Arcus Volley",
+   "serie": "Serie DF",
+   "gara": "2665",
+   "data": "2027-03-06",
+   "ora": "17:00",
+   "casa_trasferta": "Trasferta",
+   "avversario": "ASD GROSSMAN",
+   "campo": "SPORT VILLAGE",
+   "indirizzo": "ASSAGO - VIA DI VITTORIO"
+  },
+  {
    "id": "arcus-1jf",
    "squadra": "Arcus Volley",
    "serie": "1JF",
@@ -2276,6 +2487,18 @@
    "avversario": "VOMIEN SS MARTIRI",
    "campo": "SCUOLA MEDIA ORATORIO S. LUIGI",
    "indirizzo": "GARBAGNATE MILANESE - VIA GRAN SASSO 15"
+  },
+  {
+   "id": "lombardia-dfg",
+   "squadra": "Landoil Arcus Volley",
+   "serie": "Serie DF",
+   "gara": "2673",
+   "data": "2027-03-13",
+   "ora": "20:30",
+   "casa_trasferta": "Casa",
+   "avversario": "UIV ACADEMY F",
+   "campo": "PALESTRA E. TOTI",
+   "indirizzo": "ARLUNO - VIA E. TOTI"
   },
   {
    "id": "usob-2df",
@@ -2312,6 +2535,18 @@
    "avversario": "POLISPORTIVA MAGENTA 2012 ASD - FUCSIA",
    "campo": "PALESTRA PONTE NUOVO",
    "indirizzo": "MAGENTA - FRAZ PONTE NUOVO - VIA ALLA CHIESA"
+  },
+  {
+   "id": "lombardia-dfg",
+   "squadra": "Landoil Arcus Volley",
+   "serie": "Serie DF",
+   "gara": "2679",
+   "data": "2027-03-20",
+   "ora": "21:15",
+   "casa_trasferta": "Trasferta",
+   "avversario": "MARSINA POLISPORTIVA SAN GIULIANO",
+   "campo": "PALESTRA SCUOLA ELEMENTARE RODARI",
+   "indirizzo": "SAN GIULIANO MILANESE - VIA GOGOL"
   },
   {
    "id": "usob-2df",
@@ -2386,6 +2621,18 @@
    "indirizzo": "POGLIANO MILANESE - VIA CAMILLO CHIESA 5"
   },
   {
+   "id": "lombardia-dfg",
+   "squadra": "Landoil Arcus Volley",
+   "serie": "Serie DF",
+   "gara": "2689",
+   "data": "2027-04-03",
+   "ora": "20:30",
+   "casa_trasferta": "Casa",
+   "avversario": "FERLOG NEW VOLLEY PROJECT VIZZOLO (PG)",
+   "campo": "PALESTRA E. TOTI",
+   "indirizzo": "ARLUNO - VIA E. TOTI"
+  },
+  {
    "id": "usob-2df",
    "squadra": "Usob Sinergy",
    "serie": "2DF",
@@ -2420,6 +2667,18 @@
    "avversario": "GIOSPORT RHO ROSSA",
    "campo": "PALESTRA PARROCCHIALE",
    "indirizzo": "RHO - VIA CHIMINELLO 1"
+  },
+  {
+   "id": "lombardia-dfg",
+   "squadra": "Landoil Arcus Volley",
+   "serie": "Serie DF",
+   "gara": "2695",
+   "data": "2027-04-10",
+   "ora": "20:30",
+   "casa_trasferta": "Trasferta",
+   "avversario": "MC TERMOELETTRICA",
+   "campo": "PALAZZETTO DELLO SPORT PICCOLE PAVESI.",
+   "indirizzo": "PAVIA - VIA TREVES 24"
   },
   {
    "id": "arcus-1jf",
@@ -2458,6 +2717,18 @@
    "indirizzo": "INVERUNO - VIA DON STURZO - FRAZ. FURATO"
   },
   {
+   "id": "lombardia-dfg",
+   "squadra": "Landoil Arcus Volley",
+   "serie": "Serie DF",
+   "gara": "2703",
+   "data": "2027-04-17",
+   "ora": "20:30",
+   "casa_trasferta": "Casa",
+   "avversario": "BOCCONI SPORT F",
+   "campo": "PALESTRA E. TOTI",
+   "indirizzo": "ARLUNO - VIA E. TOTI"
+  },
+  {
    "id": "usob-2df",
    "squadra": "Usob Sinergy",
    "serie": "2DF",
@@ -2494,6 +2765,18 @@
    "indirizzo": "BAREGGIO - VIA MATTEOTTI 31/3"
   },
   {
+   "id": "lombardia-dfg",
+   "squadra": "Landoil Arcus Volley",
+   "serie": "Serie DF",
+   "gara": "2709",
+   "data": "2027-04-24",
+   "ora": "20:30",
+   "casa_trasferta": "Trasferta",
+   "avversario": "PGC CILAVEGNA",
+   "campo": "PALASPORT",
+   "indirizzo": "CILAVEGNA - VIA GIOVANNI FALZONI"
+  },
+  {
    "id": "garbagnate-1df",
    "squadra": "O.s.l. Volley Garbagnate",
    "serie": "1DF",
@@ -2516,6 +2799,18 @@
    "avversario": "EKOWIND - NJOY VOLLEY",
    "campo": "SCUOLA MEDIA PIRANDELLO",
    "indirizzo": "SEDRIANO - VIA ROGERIO DA SEDRIANO 12"
+  },
+  {
+   "id": "lombardia-dfg",
+   "squadra": "Landoil Arcus Volley",
+   "serie": "Serie DF",
+   "gara": "2718",
+   "data": "2027-05-01",
+   "ora": "20:30",
+   "casa_trasferta": "Casa",
+   "avversario": "ANECO VISETTE VOLLEY DF - SU (SU)",
+   "campo": "PALESTRA E. TOTI",
+   "indirizzo": "ARLUNO - VIA E. TOTI"
   },
   {
    "id": "garbagnate-1df",
@@ -2552,6 +2847,18 @@
    "avversario": "IQUEL  SANGIORGESE",
    "campo": "PALA ARLUNO",
    "indirizzo": "ARLUNO - VIA ENRICO TOTI 4"
+  },
+  {
+   "id": "lombardia-dfg",
+   "squadra": "Landoil Arcus Volley",
+   "serie": "Serie DF",
+   "gara": "2728",
+   "data": "2027-05-15",
+   "ora": "21:00",
+   "casa_trasferta": "Trasferta",
+   "avversario": "SSD BASIGLIO VOLLEY",
+   "campo": "PALESTRA SCUOLA PRIMARIA DI MILANOTRE",
+   "indirizzo": "BASIGLIO - PIAZZA LEONARDO DA VINCI 1"
   },
   {
    "id": "usob-2df",
