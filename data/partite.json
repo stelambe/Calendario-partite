@@ -1,6 +1,31 @@
 {
- "aggiornato": "2026-11-22T16:28:21+00:00",
- "problemi": [],
+ "aggiornato": "2026-11-22T17:59:40+00:00",
+ "problemi": [
+  {
+   "squadra": "Arcus Volley Oro U11",
+   "messaggio": "Page.wait_for_selector: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator(\"ul[role=\\\"listbox\\\"] li[role=\\\"option\\\"]\") to be visible\n    34 × locator r"
+  },
+  {
+   "squadra": "Arcus Volley blu U11",
+   "messaggio": "Page.wait_for_selector: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator(\"ul[role=\\\"listbox\\\"] li[role=\\\"option\\\"]\") to be visible\n    34 × locator r"
+  },
+  {
+   "squadra": "Arcus Volley Oro U12",
+   "messaggio": "Page.wait_for_selector: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator(\"ul[role=\\\"listbox\\\"] li[role=\\\"option\\\"]\") to be visible\n    34 × locator r"
+  },
+  {
+   "squadra": "Arcus Volley blu U12",
+   "messaggio": "Page.wait_for_selector: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator(\"ul[role=\\\"listbox\\\"] li[role=\\\"option\\\"]\") to be visible\n    34 × locator r"
+  },
+  {
+   "squadra": "Arcus Volley blu U13",
+   "messaggio": "Page.wait_for_selector: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator(\"ul[role=\\\"listbox\\\"] li[role=\\\"option\\\"]\") to be visible\n    34 × locator r"
+  },
+  {
+   "squadra": "New VMNP Cusago Mista 2° livello",
+   "messaggio": "Page.wait_for_selector: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator(\"ul[role=\\\"listbox\\\"] li[role=\\\"option\\\"]\") to be visible\n    34 × locator r"
+  }
+ ],
  "squadre": [
   {
    "id": "garbagnate-1df",
