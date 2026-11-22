@@ -687,5 +687,30 @@
   "VOLLEY SEGRATE U13 GIALLA",
   "VTB BONFANTI SERV. AMBIENTALI",
   "WORLDNET SECURITY CONCOREZZO"
- ]
+ ],
+ "pgs": {
+  "campionati": [
+   "Invernale 2026/2027"
+  ],
+  "categorie": [
+   "Tutte",
+   "Mista 3 Genitori",
+   "Libera Femminile",
+   "Libera Maschile",
+   "Mista 2° Livello",
+   "Under 11",
+   "Under 12",
+   "Under 13 Femminile",
+   "Under 13 Maschile",
+   "Under 14 Femminile",
+   "Under 15 Femminile",
+   "Under 15 Maschile",
+   "Under 17 Femminile",
+   "Under 17 Maschile",
+   "Under 19 Femminile",
+   "Under 19 Maschile",
+   "Under 21 Femminile"
+  ],
+  "squadre": {}
+ }
 }
