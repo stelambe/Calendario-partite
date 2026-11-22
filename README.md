@@ -34,3 +34,7 @@ Se un calendario non si legge, nella cartella `debug` compaiono la pagina salvat
 
 ## Calendario inserito a mano (Landoil Arcus Volley)
 Il sito del regionale (matchshare.it) blocca i server di GitHub (Cloudflare). Per questa squadra `fonte` è `"manuale"` e le partite stanno in `data/manuale/lombardia-dfg.json`: per aggiornarle si sostituisce quel file con il nuovo calendario.
+
+
+## Squadra nascosta
+Una squadra con `"nascosta": true` in `squadre.json` non compare nell'app per i visitatori. Per vederla si apre l'indirizzo con `?tuo` in fondo (es. `.../Calendario-partite/?tuo`). Attenzione: non è segreta, i dati restano nel file pubblico `data/partite.json`.
