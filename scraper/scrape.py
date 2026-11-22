@@ -242,11 +242,17 @@ def leggi_opzioni(page, attesa=15000):
 
 
 def chiudi_lista(page):
-    page.keyboard.press("Escape")
-    try:
-        page.wait_for_selector('ul[role="listbox"]', state="detached", timeout=5000)
-    except Exception:
-        pass
+    """Chiude il menu aperto. Escape non sempre arriva al menu: se resta aperto clicca fuori."""
+    for metodo in ("escape", "fuori"):
+        if metodo == "escape":
+            page.keyboard.press("Escape")
+        else:
+            page.mouse.click(3, 3)
+        try:
+            page.wait_for_selector('ul[role="listbox"]', state="detached", timeout=2500)
+            return
+        except Exception:
+            pass
 
 
 def clicca_opzione(page, i):
@@ -329,11 +335,12 @@ def pgs_una_volta(page, squadra, info):
     info["categorie"] = opz_cat
     var = varianti_categoria(squadra["categoria"])
     candidate = [i for i, t in enumerate(opz_cat) if any(contiene_parola(norm(t), v) for v in var)]
-    chiudi_lista(page)
     if not candidate:
+        chiudi_lista(page)
         raise ErrorePgs(f"categoria '{squadra['categoria']}' non trovata", info)
-    for i in candidate:
-        apri_menu(page, "available-categorie")
+    for k, i in enumerate(candidate):
+        if k > 0:  # il menu e gia aperto la prima volta; poi va riaperto
+            apri_menu(page, "available-categorie")
         clicca_opzione(page, i)
         opz_sq = elenco_squadre(page)
         info.setdefault("squadre", {})[opz_cat[i]] = opz_sq
