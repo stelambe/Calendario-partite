@@ -1,11 +1,6 @@
 {
- "aggiornato": "2026-11-22T20:09:50+00:00",
- "problemi": [
-  {
-   "squadra": "Arcus Volley blu U13",
-   "messaggio": "squadra 'Arcus Volley blu' non trovata nelle categorie ['Under 13 Femminile', 'Under 13 Maschile']"
-  }
- ],
+ "aggiornato": "2026-11-22T20:16:08+00:00",
+ "problemi": [],
  "squadre": [
   {
    "id": "garbagnate-1df",
@@ -112,6 +107,18 @@
    "indirizzo": ""
   },
   {
+   "id": "pgs-u13-blu",
+   "squadra": "Arcus Volley blu",
+   "serie": "U13",
+   "gara": "5663",
+   "data": "2026-10-11",
+   "ora": "15:00",
+   "casa_trasferta": "Casa",
+   "avversario": "NJOY VOLLEY",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
    "id": "arcus-19f",
    "squadra": "Arcus Volley",
    "serie": "19F",
@@ -168,6 +175,18 @@
    "ora": "14:30",
    "casa_trasferta": "Trasferta",
    "avversario": "CIEF MAGENTA",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
+   "id": "pgs-u13-blu",
+   "squadra": "Arcus Volley blu",
+   "serie": "U13",
+   "gara": "5665",
+   "data": "2026-10-18",
+   "ora": "15:00",
+   "casa_trasferta": "Casa",
+   "avversario": "POL. MAGENTA 2012",
    "campo": "",
    "indirizzo": ""
   },
@@ -264,6 +283,18 @@
    "ora": "14:30",
    "casa_trasferta": "Casa",
    "avversario": "PRO VOLLEY",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
+   "id": "pgs-u13-blu",
+   "squadra": "Arcus Volley blu",
+   "serie": "U13",
+   "gara": "5667",
+   "data": "2026-10-25",
+   "ora": "14:30",
+   "casa_trasferta": "Trasferta",
+   "avversario": "VISETTE VOLLEY",
    "campo": "",
    "indirizzo": ""
   },
@@ -388,6 +419,18 @@
    "indirizzo": ""
   },
   {
+   "id": "pgs-u13-blu",
+   "squadra": "Arcus Volley blu",
+   "serie": "U13",
+   "gara": "5686",
+   "data": "2026-11-01",
+   "ora": "15:00",
+   "casa_trasferta": "Trasferta",
+   "avversario": "POLIS. CORBETTA 2015",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
    "id": "arcus-19f",
    "squadra": "Arcus Volley",
    "serie": "19F",
@@ -444,6 +487,18 @@
    "ora": "15:00",
    "casa_trasferta": "Trasferta",
    "avversario": "POLIS. CORBETTA 2015",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
+   "id": "pgs-u13-blu",
+   "squadra": "Arcus Volley blu",
+   "serie": "U13",
+   "gara": "5673",
+   "data": "2026-11-07",
+   "ora": "15:00",
+   "casa_trasferta": "Trasferta",
+   "avversario": "OSG ABBIATEGRASSO",
    "campo": "",
    "indirizzo": ""
   },
@@ -652,6 +707,18 @@
    "indirizzo": ""
   },
   {
+   "id": "pgs-u13-blu",
+   "squadra": "Arcus Volley blu",
+   "serie": "U13",
+   "gara": "5678",
+   "data": "2026-11-14",
+   "ora": "18:00",
+   "casa_trasferta": "Trasferta",
+   "avversario": "NJOY VOLLEY",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
    "id": "pgs-u11-oro",
    "squadra": "Arcus Volley Oro",
    "serie": "U11",
@@ -780,6 +847,18 @@
    "ora": "15:00",
    "casa_trasferta": "Casa",
    "avversario": "PRO VOLLEY BIANCA",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
+   "id": "pgs-u13-blu",
+   "squadra": "Arcus Volley blu",
+   "serie": "U13",
+   "gara": "5680",
+   "data": "2026-11-21",
+   "ora": "15:00",
+   "casa_trasferta": "Trasferta",
+   "avversario": "POL. MAGENTA 2012",
    "campo": "",
    "indirizzo": ""
   },
@@ -996,6 +1075,18 @@
    "ora": "11:00",
    "casa_trasferta": "Trasferta",
    "avversario": "CIEF MAGENTA",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
+   "id": "pgs-u13-blu",
+   "squadra": "Arcus Volley blu",
+   "serie": "U13",
+   "gara": "5682",
+   "data": "2026-11-29",
+   "ora": "14:00",
+   "casa_trasferta": "Casa",
+   "avversario": "VISETTE VOLLEY",
    "campo": "",
    "indirizzo": ""
   },
@@ -1264,6 +1355,18 @@
    "indirizzo": "MILANO - VIA SAPRI 50"
   },
   {
+   "id": "pgs-u13-blu",
+   "squadra": "Arcus Volley blu",
+   "serie": "U13",
+   "gara": "5671",
+   "data": "2026-12-13",
+   "ora": "14:00",
+   "casa_trasferta": "Casa",
+   "avversario": "POLIS. CORBETTA 2015",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
    "id": "pgs-u12-oro",
    "squadra": "Arcus Volley Oro",
    "serie": "U12",
@@ -1404,6 +1507,18 @@
    "ora": "15:00",
    "casa_trasferta": "Casa",
    "avversario": "S. MASSIMILIANO KOLBE",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
+   "id": "pgs-u13-blu",
+   "squadra": "Arcus Volley blu",
+   "serie": "U13",
+   "gara": "5688",
+   "data": "2026-12-20",
+   "ora": "15:00",
+   "casa_trasferta": "Casa",
+   "avversario": "OSG ABBIATEGRASSO",
    "campo": "",
    "indirizzo": ""
   },
