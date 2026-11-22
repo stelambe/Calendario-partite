@@ -1,6 +1,11 @@
 {
- "aggiornato": "2026-11-22T20:16:08+00:00",
- "problemi": [],
+ "aggiornato": "2026-11-22T20:32:13+00:00",
+ "problemi": [
+  {
+   "squadra": "Landoil Arcus Volley Serie DF",
+   "messaggio": "Page.wait_for_selector: Timeout 45000ms exceeded.\nCall log:\n  - waiting for locator(\"tr.match[data-mid]\")\n"
+  }
+ ],
  "squadre": [
   {
    "id": "garbagnate-1df",
@@ -91,6 +96,12 @@
    "nome": "New VMNP Cusago",
    "serie": "Mista 2° livello",
    "url": "https://volley.pgsmilano.org/calendari"
+  },
+  {
+   "id": "lombardia-dfg",
+   "nome": "Landoil Arcus Volley",
+   "serie": "Serie DF",
+   "url": "https://srv6.matchshare.it/stats_test/rest_api/fm_calendario?public=1&sid=645&client_name=fipavlombardia2"
   }
  ],
  "partite": [
