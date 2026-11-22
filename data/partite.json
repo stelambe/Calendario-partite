@@ -1,12 +1,13 @@
 {
- "aggiornato": "2026-11-22T22:12:23+00:00",
+ "aggiornato": "2026-11-22T22:33:52+00:00",
  "problemi": [],
  "squadre": [
   {
    "id": "garbagnate-1df",
    "nome": "O.s.l. Volley Garbagnate",
    "serie": "1DF",
-   "url": "https://www.sol.milano.federvolley.it/calendarioris/1001225/2026"
+   "url": "https://www.sol.milano.federvolley.it/calendarioris/1001225/2026",
+   "nascosta": true
   },
   {
    "id": "arcus-1jf",
