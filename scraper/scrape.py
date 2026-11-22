@@ -30,13 +30,19 @@ JS_RIGHE = """
 """
 
 
+JS_TESTI = """
+() => [...document.querySelectorAll('table.rz-grid-table tbody tr')].map(tr =>
+  [...tr.querySelectorAll('td')].map(td => td.textContent.replace(/\\u00a0/g, ' ').replace(/\\s+/g, ' ').trim()))
+"""
+
+
 def leggi_risultato(testo, parziali=""):
     """Estrae i set vinti 'casa-ospite' (es. '3-0'). Se manca, li conta dai parziali ('25-20 18-25 ...').
     Restituisce '' se la partita non risulta giocata."""
-    m = re.search(r"(\d+)\s*[-–:]\s*(\d+)", testo or "")
+    m = re.search(r"(?<!\d)(\d{1,2})\s*[-–:]?\s*(\d{1,2})(?!\d)", testo or "")
     if m and (int(m.group(1)) or int(m.group(2))):
         return f"{int(m.group(1))}-{int(m.group(2))}"
-    sets = re.findall(r"(\d+)\s*[-–:]\s*(\d+)", parziali or "")
+    sets = re.findall(r"(\d+)\s*[-–:/]\s*(\d+)", parziali or "")
     if sets:
         a = sum(int(x) > int(y) for x, y in sets)
         b = sum(int(y) > int(x) for x, y in sets)
@@ -60,9 +66,17 @@ def corrisponde(cercato, nome_in_tabella):
     return set(nc.split()) <= set(nt.split()) or nc in nt
 
 
-def righe_a_partite(righe):
+def risultato_riga(c, testo):
+    ris = " ".join(c[3]) if len(c) > 3 else ""
+    par = " ".join(c[4]) if len(c) > 4 else ""
+    if testo and len(testo) > 4:
+        ris, par = ris or testo[3], par or testo[4]
+    return leggi_risultato(ris, par)
+
+
+def righe_a_partite(righe, testi=None):
     partite = []
-    for c in righe:
+    for n, c in enumerate(righe):
         if len(c) < 6 or not c[1] or len(c[2]) < 2:
             continue
         m = re.search(r"(\d{1,2})/(\d{1,2})/(\d{4})", c[1][0])
@@ -76,7 +90,7 @@ def righe_a_partite(righe):
                 ora = f"{int(t.group(1)):02d}:{t.group(2)}"
         partite.append({
             "gara": c[0][0] if c[0] else "",
-            "risultato": leggi_risultato(c[3][0] if len(c) > 3 and c[3] else "", c[4][0] if len(c) > 4 and c[4] else ""),
+            "risultato": risultato_riga(c, testi[n] if testi and n < len(testi) else None),
             "data": data,
             "ora": ora,
             "casa": c[2][0],
@@ -156,7 +170,7 @@ def leggi_tabella_partite(page):
         timeout=30000)
     page.wait_for_timeout(1500)
     righe = page.evaluate(JS_RIGHE)
-    partite = righe_a_partite(righe)
+    partite = righe_a_partite(righe, page.evaluate(JS_TESTI))
     if not partite:
         raise RuntimeError(f"tabella trovata ma nessuna partita leggibile ({len(righe)} righe)")
     return partite
@@ -179,7 +193,10 @@ def leggi_squadra(ctx, url, squadra, nome_debug):
             if i is None:
                 raise SquadraNonTrovata(f"squadra '{squadra['nome']}' non trovata nell'elenco del campionato", elenco)
             page.locator(RIGHE_ELENCO).nth(i).locator("td").nth(2).locator("div.fw-bold").click()
-            return leggi_tabella_partite(page), elenco
+            esito = leggi_tabella_partite(page), elenco
+            if squadra.get("id") in ("arcus-17f", "garbagnate-1df"):
+                salva_debug(page, f"{squadra['id']}-tabella")
+            return esito
         except SquadraNonTrovata as e:
             print(f"  {e}")
             salva_debug(page, nome_debug)
@@ -302,6 +319,42 @@ def elenco_squadre(page):
     return []
 
 
+JS_TESTO_PAGINA = "() => document.body.innerText"
+
+
+def righe_testo(page):
+    return {l.strip() for l in page.evaluate(JS_TESTO_PAGINA).split("\n") if l.strip()}
+
+
+def leggi_indirizzi(page, squadra, partite):
+    """Nella tabella PGS l'indirizzo e dietro un'icona a spillo: si clicca e si legge cio che compare."""
+    primo = True
+    for p in partite:
+        if not (corrisponde(squadra["nome"], p["casa"]) or corrisponde(squadra["nome"], p["ospite"])):
+            continue
+        try:
+            cella = page.locator("table tbody tr").nth(p["riga"]).locator("td").nth(p["col_ind"])
+            icona = cella.locator("svg, button").first
+            if icona.count() == 0:
+                continue
+            prima = righe_testo(page)
+            icona.click(timeout=4000)
+            page.wait_for_timeout(700)
+            nuove = [l for l in page.evaluate(JS_TESTO_PAGINA).split("\n") if l.strip() and l.strip() not in prima]
+            if primo:
+                salva_debug(page, f"{squadra['id']}-spillo")
+                primo = False
+            p["indirizzo"] = " - ".join(l.strip() for l in nuove)[:200]
+            chiudi_lista(page)
+            page.wait_for_timeout(300)
+        except Exception as e:
+            print(f"  indirizzo non letto: {str(e)[:100]}")
+            try:
+                chiudi_lista(page)
+            except Exception:
+                pass
+
+
 def pgs_righe(tab):
     h = tab["h"]
 
@@ -312,7 +365,7 @@ def pgs_righe(tab):
     i_ind, i_casa, i_osp = col("indirizzo", 4), col("squadra in casa", 5), col("squadra in trasferta", 6)
     i_ris = col("risultato", 7)
     partite = []
-    for c in tab["r"]:
+    for n_riga, c in enumerate(tab["r"]):
         if len(c) <= max(i_data, i_ora, i_casa, i_osp):
             continue
         m = re.search(r"(\d{1,2})/(\d{1,2})/(\d{4})", c[i_data])
@@ -327,6 +380,7 @@ def pgs_righe(tab):
             "casa": c[i_casa], "ospite": c[i_osp],
             "campo": "",
             "indirizzo": c[i_ind] if i_ind < len(c) else "",
+            "riga": n_riga, "col_ind": i_ind,
         })
     return partite
 
@@ -377,6 +431,7 @@ def pgs_una_volta(page, squadra, info):
             if tab:
                 partite = pgs_righe(tab)
                 if any(corrisponde(squadra["nome"], p["casa"]) or corrisponde(squadra["nome"], p["ospite"]) for p in partite):
+                    leggi_indirizzi(page, squadra, partite)
                     return partite
             page.wait_for_timeout(1000)
         raise ErrorePgs("la tabella delle partite non e comparsa dopo la scelta della squadra", info)
