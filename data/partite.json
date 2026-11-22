@@ -55,6 +55,42 @@
    "nome": "Arcus Volley oro",
    "serie": "13F",
    "url": "https://www.sol.milano.federvolley.it/calendarioris/1001247/2026"
+  },
+  {
+   "id": "pgs-u11-oro",
+   "nome": "Arcus Volley Oro",
+   "serie": "U11",
+   "url": "https://volley.pgsmilano.org/calendari"
+  },
+  {
+   "id": "pgs-u11-blu",
+   "nome": "Arcus Volley blu",
+   "serie": "U11",
+   "url": "https://volley.pgsmilano.org/calendari"
+  },
+  {
+   "id": "pgs-u12-oro",
+   "nome": "Arcus Volley Oro",
+   "serie": "U12",
+   "url": "https://volley.pgsmilano.org/calendari"
+  },
+  {
+   "id": "pgs-u12-blu",
+   "nome": "Arcus Volley blu",
+   "serie": "U12",
+   "url": "https://volley.pgsmilano.org/calendari"
+  },
+  {
+   "id": "pgs-u13-blu",
+   "nome": "Arcus Volley blu",
+   "serie": "U13",
+   "url": "https://volley.pgsmilano.org/calendari"
+  },
+  {
+   "id": "pgs-mista2-cusago",
+   "nome": "New VMNP Cusago",
+   "serie": "Mista 2° livello",
+   "url": "https://volley.pgsmilano.org/calendari"
   }
  ],
  "partite": [

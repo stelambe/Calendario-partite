@@ -101,7 +101,7 @@ tbody tr:first-child td{border-top:0}
 
 <script>
 const REPO = 'https://github.com/stelambe/calendario-partite';
-const COLORS = ['#2F6FED','#E0662B','#1E9E6A','#B44FD1','#D6A21A','#D9434F','#1BA5B8','#7A8B99','#8A5A2B'];
+const COLORS = ['#2F6FED','#E0662B','#1E9E6A','#B44FD1','#D6A21A','#D9434F','#1BA5B8','#7A8B99','#8A5A2B','#3B8F2E','#C2417C','#5B63D3','#B3871F','#2A9D8F','#9C5B3C','#6B7A2A'];
 const $ = s => document.querySelector(s);
 const pad = n => String(n).padStart(2, '0');
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -205,7 +205,7 @@ function setQuick(q){
 function renderTeams(){
   const n = id => D.partite.filter(p => p.id === id).length;
   $('#view').innerHTML = `
-    <p class="hint">I calendari vengono letti dal sito della federazione tre volte al giorno. ${esc(updated())}.</p>
+    <p class="hint">I calendari vengono letti dai siti delle federazioni tre volte al giorno. ${esc(updated())}.</p>
     <div class="list">${D.squadre.map(t => `
       <article class="panel team"><header><span class="dot" style="background:${colorOf(t.id)}"></span><strong>${esc(t.nome)}</strong><span class="muted">${esc(t.serie)}</span></header>
       <p>${n(t.id)} partite in calendario · <a href="${esc(t.url)}" target="_blank" rel="noopener">Apri il calendario sul sito</a></p></article>`).join('')}</div>
