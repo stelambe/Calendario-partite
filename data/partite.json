@@ -1,29 +1,9 @@
 {
- "aggiornato": "2026-11-22T18:41:29+00:00",
+ "aggiornato": "2026-11-22T20:09:50+00:00",
  "problemi": [
   {
-   "squadra": "Arcus Volley Oro U11",
-   "messaggio": "Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"div[role=\\\"combobox\\\"][aria-labelledby=\\\"available-categorie\\\"]\")\n    - locator reso"
-  },
-  {
-   "squadra": "Arcus Volley blu U11",
-   "messaggio": "Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"div[role=\\\"combobox\\\"][aria-labelledby=\\\"available-categorie\\\"]\")\n    - locator reso"
-  },
-  {
-   "squadra": "Arcus Volley Oro U12",
-   "messaggio": "Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"div[role=\\\"combobox\\\"][aria-labelledby=\\\"available-categorie\\\"]\")\n    - locator reso"
-  },
-  {
-   "squadra": "Arcus Volley blu U12",
-   "messaggio": "Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"div[role=\\\"combobox\\\"][aria-labelledby=\\\"available-categorie\\\"]\")\n    - locator reso"
-  },
-  {
    "squadra": "Arcus Volley blu U13",
-   "messaggio": "Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"div[role=\\\"combobox\\\"][aria-labelledby=\\\"available-categorie\\\"]\")\n    - locator reso"
-  },
-  {
-   "squadra": "New VMNP Cusago Mista 2° livello",
-   "messaggio": "Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"div[role=\\\"combobox\\\"][aria-labelledby=\\\"available-categorie\\\"]\")\n    - locator reso"
+   "messaggio": "squadra 'Arcus Volley blu' non trovata nelle categorie ['Under 13 Femminile', 'Under 13 Maschile']"
   }
  ],
  "squadre": [
@@ -120,6 +100,18 @@
  ],
  "partite": [
   {
+   "id": "pgs-u12-blu",
+   "squadra": "Arcus Volley blu",
+   "serie": "U12",
+   "gara": "5213",
+   "data": "2026-10-11",
+   "ora": "14:30",
+   "casa_trasferta": "Trasferta",
+   "avversario": "PALLAVOLO CANEGRATE",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
    "id": "arcus-19f",
    "squadra": "Arcus Volley",
    "serie": "19F",
@@ -144,6 +136,18 @@
    "indirizzo": "ARLUNO - VIA ENRICO TOTI 4"
   },
   {
+   "id": "pgs-u12-blu",
+   "squadra": "Arcus Volley blu",
+   "serie": "U12",
+   "gara": "5231",
+   "data": "2026-10-17",
+   "ora": "14:30",
+   "casa_trasferta": "Trasferta",
+   "avversario": "VOL. DON BOSCO BUSCATE",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
    "id": "arcus-17f",
    "squadra": "Arcus Volley",
    "serie": "17F",
@@ -154,6 +158,18 @@
    "avversario": "G.S FO.CO.L VOLLEY LEGNANO",
    "campo": "PALA VOLLEY LEGNANO",
    "indirizzo": "LEGNANO - VIA MILANO 14"
+  },
+  {
+   "id": "pgs-u11-blu",
+   "squadra": "Arcus Volley blu",
+   "serie": "U11",
+   "gara": "5036",
+   "data": "2026-10-18",
+   "ora": "14:30",
+   "casa_trasferta": "Trasferta",
+   "avversario": "CIEF MAGENTA",
+   "campo": "",
+   "indirizzo": ""
   },
   {
    "id": "arcus-15f",
@@ -180,6 +196,42 @@
    "indirizzo": "ARLUNO - VIA ENRICO TOTI 4"
   },
   {
+   "id": "pgs-mista2-cusago",
+   "squadra": "New VMNP Cusago",
+   "serie": "Mista 2° livello",
+   "gara": "0734",
+   "data": "2026-10-22",
+   "ora": "21:00",
+   "casa_trasferta": "Casa",
+   "avversario": "ASD SAN GIUSEPPE TRECATE",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
+   "id": "pgs-u12-oro",
+   "squadra": "Arcus Volley Oro",
+   "serie": "U12",
+   "gara": "5305",
+   "data": "2026-10-24",
+   "ora": "11:00",
+   "casa_trasferta": "Trasferta",
+   "avversario": "ROZZANO VOLLEY ASD",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
+   "id": "pgs-u11-oro",
+   "squadra": "Arcus Volley Oro",
+   "serie": "U11",
+   "gara": "5009",
+   "data": "2026-10-24",
+   "ora": "15:00",
+   "casa_trasferta": "Trasferta",
+   "avversario": "ASCOR BETTOLINO",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
    "id": "arcus-14f",
    "squadra": "Arcus Volley",
    "serie": "14F",
@@ -192,6 +244,30 @@
    "indirizzo": "PADERNO DUGNANO - CALDERARA - VIA CHOPIN"
   },
   {
+   "id": "pgs-u12-blu",
+   "squadra": "Arcus Volley blu",
+   "serie": "U12",
+   "gara": "5219",
+   "data": "2026-10-25",
+   "ora": "11:00",
+   "casa_trasferta": "Trasferta",
+   "avversario": "DST VOLLEY TURBIGO",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
+   "id": "pgs-u11-blu",
+   "squadra": "Arcus Volley blu",
+   "serie": "U11",
+   "gara": "5038",
+   "data": "2026-10-25",
+   "ora": "14:30",
+   "casa_trasferta": "Casa",
+   "avversario": "PRO VOLLEY",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
    "id": "arcus-17f",
    "squadra": "Arcus Volley",
    "serie": "17F",
@@ -202,6 +278,18 @@
    "avversario": "POL. GAREGNANO 1976 U 17 (2010)",
    "campo": "PALA ARLUNO",
    "indirizzo": "ARLUNO - VIA ENRICO TOTI 4"
+  },
+  {
+   "id": "pgs-u12-oro",
+   "squadra": "Arcus Volley Oro",
+   "serie": "U12",
+   "gara": "5309",
+   "data": "2026-10-25",
+   "ora": "15:00",
+   "casa_trasferta": "Casa",
+   "avversario": "CIEF MAGENTA",
+   "campo": "",
+   "indirizzo": ""
   },
   {
    "id": "arcus-15f",
@@ -240,6 +328,18 @@
    "indirizzo": "NOVA MILANESE - VIA F.LLI ROSSELLI ANG. VIA NOVATI"
   },
   {
+   "id": "pgs-u11-oro",
+   "squadra": "Arcus Volley Oro",
+   "serie": "U11",
+   "gara": "5012",
+   "data": "2026-10-31",
+   "ora": "15:00",
+   "casa_trasferta": "Casa",
+   "avversario": "DST VOLLEY TURBIGO",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
    "id": "arcus-14f",
    "squadra": "Arcus Volley",
    "serie": "14F",
@@ -264,6 +364,30 @@
    "indirizzo": "SETTIMO MILANESE - VIA GRANDI 4"
   },
   {
+   "id": "pgs-u11-blu",
+   "squadra": "Arcus Volley blu",
+   "serie": "U11",
+   "gara": "5041",
+   "data": "2026-11-01",
+   "ora": "10:00",
+   "casa_trasferta": "Trasferta",
+   "avversario": "OLYMPIA BUCCINASCO",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
+   "id": "pgs-u12-oro",
+   "squadra": "Arcus Volley Oro",
+   "serie": "U12",
+   "gara": "5310",
+   "data": "2026-11-01",
+   "ora": "15:00",
+   "casa_trasferta": "Casa",
+   "avversario": "OLYMPIA BUCCINASCO",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
    "id": "arcus-19f",
    "squadra": "Arcus Volley",
    "serie": "19F",
@@ -276,6 +400,18 @@
    "indirizzo": "RHO - VIA S. DI GIACOMO"
   },
   {
+   "id": "pgs-mista2-cusago",
+   "squadra": "New VMNP Cusago",
+   "serie": "Mista 2° livello",
+   "gara": "0742",
+   "data": "2026-11-01",
+   "ora": "21:15",
+   "casa_trasferta": "Trasferta",
+   "avversario": "NJOY VOLLEY CREW",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
    "id": "garbagnate-1df",
    "squadra": "O.s.l. Volley Garbagnate",
    "serie": "1DF",
@@ -286,6 +422,42 @@
    "avversario": "POLISPORTIVA TREZZANO ASD",
    "campo": "SCUOLA MEDIA ORATORIO S. LUIGI",
    "indirizzo": "GARBAGNATE MILANESE - VIA GRAN SASSO 15"
+  },
+  {
+   "id": "pgs-u11-oro",
+   "squadra": "Arcus Volley Oro",
+   "serie": "U11",
+   "gara": "5015",
+   "data": "2026-11-07",
+   "ora": "15:00",
+   "casa_trasferta": "Trasferta",
+   "avversario": "VOMIEN",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
+   "id": "pgs-u12-oro",
+   "squadra": "Arcus Volley Oro",
+   "serie": "U12",
+   "gara": "5314",
+   "data": "2026-11-07",
+   "ora": "15:00",
+   "casa_trasferta": "Trasferta",
+   "avversario": "POLIS. CORBETTA 2015",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
+   "id": "pgs-u12-blu",
+   "squadra": "Arcus Volley blu",
+   "serie": "U12",
+   "gara": "5225",
+   "data": "2026-11-07",
+   "ora": "15:30",
+   "casa_trasferta": "Trasferta",
+   "avversario": "S. MASSIMILIANO KOLBE",
+   "campo": "",
+   "indirizzo": ""
   },
   {
    "id": "arcus-15f",
@@ -348,6 +520,18 @@
    "indirizzo": "ARLUNO - VIA ENRICO TOTI 4"
   },
   {
+   "id": "pgs-u11-blu",
+   "squadra": "Arcus Volley blu",
+   "serie": "U11",
+   "gara": "5044",
+   "data": "2026-11-08",
+   "ora": "15:00",
+   "casa_trasferta": "Casa",
+   "avversario": "OSG ABBIATEGRASSO",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
    "id": "arcus-19f",
    "squadra": "Arcus Volley",
    "serie": "19F",
@@ -370,6 +554,18 @@
    "avversario": "ASD UNIONE SPORTIVA CASTERNO",
    "campo": "PALAZZETTO",
    "indirizzo": "CUSAGO - VIA IV NOVEMBRE"
+  },
+  {
+   "id": "pgs-mista2-cusago",
+   "squadra": "New VMNP Cusago",
+   "serie": "Mista 2° livello",
+   "gara": "0743",
+   "data": "2026-11-09",
+   "ora": "21:00",
+   "casa_trasferta": "Casa",
+   "avversario": "ANNI VERDI 95 NERA",
+   "campo": "",
+   "indirizzo": ""
   },
   {
    "id": "garbagnate-1df",
@@ -396,6 +592,30 @@
    "indirizzo": "ARLUNO - VIA ENRICO TOTI 4"
   },
   {
+   "id": "pgs-u11-oro",
+   "squadra": "Arcus Volley Oro",
+   "serie": "U11",
+   "gara": "5003",
+   "data": "2026-11-14",
+   "ora": "15:00",
+   "casa_trasferta": "Trasferta",
+   "avversario": "GSO VILLA CORTESE",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
+   "id": "pgs-u12-oro",
+   "squadra": "Arcus Volley Oro",
+   "serie": "U12",
+   "gara": "5316",
+   "data": "2026-11-14",
+   "ora": "15:00",
+   "casa_trasferta": "Trasferta",
+   "avversario": "PRO VOLLEY BIANCA",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
    "id": "arcus-17f",
    "squadra": "Arcus Volley",
    "serie": "17F",
@@ -420,6 +640,30 @@
    "indirizzo": "ABBIATEGRASSO - VIA SAN GIOVANNI BOSCO 21"
   },
   {
+   "id": "pgs-u12-blu",
+   "squadra": "Arcus Volley blu",
+   "serie": "U12",
+   "gara": "5228",
+   "data": "2026-11-14",
+   "ora": "18:00",
+   "casa_trasferta": "Casa",
+   "avversario": "PALLAVOLO CANEGRATE",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
+   "id": "pgs-u11-oro",
+   "squadra": "Arcus Volley Oro",
+   "serie": "U11",
+   "gara": "5018",
+   "data": "2026-11-15",
+   "ora": "10:30",
+   "casa_trasferta": "Casa",
+   "avversario": "GSO VILLA CORTESE",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
    "id": "arcus-13f-blu",
    "squadra": "Arcus Volley blu",
    "serie": "13F",
@@ -430,6 +674,18 @@
    "avversario": "ASD PALLAVOLO RHO GIORGIUTTI & DI BARBARA",
    "campo": "SCUOLA MEDIA RHO-QUARTIERE STELLANDA",
    "indirizzo": "RHO - VIA S. DI GIACOMO"
+  },
+  {
+   "id": "pgs-u11-blu",
+   "squadra": "Arcus Volley blu",
+   "serie": "U11",
+   "gara": "5047",
+   "data": "2026-11-15",
+   "ora": "14:30",
+   "casa_trasferta": "Casa",
+   "avversario": "NJOY VOLLEY",
+   "campo": "",
+   "indirizzo": ""
   },
   {
    "id": "arcus-14f",
@@ -468,6 +724,18 @@
    "indirizzo": "CUSAGO - VIA IV NOVEMBRE"
   },
   {
+   "id": "pgs-mista2-cusago",
+   "squadra": "New VMNP Cusago",
+   "serie": "Mista 2° livello",
+   "gara": "0746",
+   "data": "2026-11-16",
+   "ora": "21:00",
+   "casa_trasferta": "Casa",
+   "avversario": "GSO OSSONA",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
    "id": "arcus-1jf",
    "squadra": "Arcus Volley",
    "serie": "1JF",
@@ -490,6 +758,42 @@
    "avversario": "VOLLEY CUSANO",
    "campo": "SCUOLA MEDIA ORATORIO S. LUIGI",
    "indirizzo": "GARBAGNATE MILANESE - VIA GRAN SASSO 15"
+  },
+  {
+   "id": "pgs-u11-oro",
+   "squadra": "Arcus Volley Oro",
+   "serie": "U11",
+   "gara": "5021",
+   "data": "2026-11-21",
+   "ora": "15:00",
+   "casa_trasferta": "Trasferta",
+   "avversario": "S.O.I. INVERUNO",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
+   "id": "pgs-u12-oro",
+   "squadra": "Arcus Volley Oro",
+   "serie": "U12",
+   "gara": "5301",
+   "data": "2026-11-21",
+   "ora": "15:00",
+   "casa_trasferta": "Casa",
+   "avversario": "PRO VOLLEY BIANCA",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
+   "id": "pgs-u12-blu",
+   "squadra": "Arcus Volley blu",
+   "serie": "U12",
+   "gara": "5216",
+   "data": "2026-11-21",
+   "ora": "15:30",
+   "casa_trasferta": "Casa",
+   "avversario": "VOL. DON BOSCO BUSCATE",
+   "campo": "",
+   "indirizzo": ""
   },
   {
    "id": "arcus-13f-oro",
@@ -516,6 +820,18 @@
    "indirizzo": "ARLUNO - VIA ENRICO TOTI 4"
   },
   {
+   "id": "pgs-u12-oro",
+   "squadra": "Arcus Volley Oro",
+   "serie": "U12",
+   "gara": "5320",
+   "data": "2026-11-22",
+   "ora": "10:30",
+   "casa_trasferta": "Casa",
+   "avversario": "ROZZANO VOLLEY ASD",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
    "id": "arcus-13f-blu",
    "squadra": "Arcus Volley blu",
    "serie": "13F",
@@ -526,6 +842,18 @@
    "avversario": "G.S FO.CO.L VOLLEY LEGNANO",
    "campo": "SCUOLA ELEMENTARE MAZZINI",
    "indirizzo": "LEGNANO - VIA CALATAFIMI 1"
+  },
+  {
+   "id": "pgs-u11-blu",
+   "squadra": "Arcus Volley blu",
+   "serie": "U11",
+   "gara": "5051",
+   "data": "2026-11-22",
+   "ora": "15:00",
+   "casa_trasferta": "Casa",
+   "avversario": "CIEF MAGENTA",
+   "campo": "",
+   "indirizzo": ""
   },
   {
    "id": "arcus-19f",
@@ -552,6 +880,18 @@
    "indirizzo": "CUSAGO - VIA IV NOVEMBRE"
   },
   {
+   "id": "pgs-mista2-cusago",
+   "squadra": "New VMNP Cusago",
+   "serie": "Mista 2° livello",
+   "gara": "0749",
+   "data": "2026-11-22",
+   "ora": "20:15",
+   "casa_trasferta": "Trasferta",
+   "avversario": "ASD SAN GIUSEPPE TRECATE",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
    "id": "arcus-1jf",
    "squadra": "Arcus Volley",
    "serie": "1JF",
@@ -562,6 +902,18 @@
    "avversario": "PIZZAUT PALLAVOLO CASSINA",
    "campo": "PALA ARLUNO",
    "indirizzo": "ARLUNO - VIA ENRICO TOTI 4"
+  },
+  {
+   "id": "pgs-mista2-cusago",
+   "squadra": "New VMNP Cusago",
+   "serie": "Mista 2° livello",
+   "gara": "0738",
+   "data": "2026-11-27",
+   "ora": "21:15",
+   "casa_trasferta": "Trasferta",
+   "avversario": "AURORA OSGB",
+   "campo": "",
+   "indirizzo": ""
   },
   {
    "id": "garbagnate-1df",
@@ -598,6 +950,54 @@
    "avversario": "BILLA VOLLEY MILANO BLU",
    "campo": "PALA ARLUNO",
    "indirizzo": "ARLUNO - VIA ENRICO TOTI 4"
+  },
+  {
+   "id": "pgs-u12-blu",
+   "squadra": "Arcus Volley blu",
+   "serie": "U12",
+   "gara": "5234",
+   "data": "2026-11-28",
+   "ora": "18:00",
+   "casa_trasferta": "Casa",
+   "avversario": "DST VOLLEY TURBIGO",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
+   "id": "pgs-u11-oro",
+   "squadra": "Arcus Volley Oro",
+   "serie": "U11",
+   "gara": "5024",
+   "data": "2026-11-29",
+   "ora": "10:30",
+   "casa_trasferta": "Casa",
+   "avversario": "ASCOR BETTOLINO",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
+   "id": "pgs-u11-blu",
+   "squadra": "Arcus Volley blu",
+   "serie": "U11",
+   "gara": "5053",
+   "data": "2026-11-29",
+   "ora": "10:30",
+   "casa_trasferta": "Trasferta",
+   "avversario": "PRO VOLLEY",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
+   "id": "pgs-u12-oro",
+   "squadra": "Arcus Volley Oro",
+   "serie": "U12",
+   "gara": "5324",
+   "data": "2026-11-29",
+   "ora": "11:00",
+   "casa_trasferta": "Trasferta",
+   "avversario": "CIEF MAGENTA",
+   "campo": "",
+   "indirizzo": ""
   },
   {
    "id": "arcus-13f-oro",
@@ -648,6 +1048,18 @@
    "indirizzo": "ARLUNO - VIA ENRICO TOTI 4"
   },
   {
+   "id": "pgs-mista2-cusago",
+   "squadra": "New VMNP Cusago",
+   "serie": "Mista 2° livello",
+   "gara": "0753",
+   "data": "2026-11-30",
+   "ora": "21:00",
+   "casa_trasferta": "Casa",
+   "avversario": "AURORA OSGB",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
    "id": "arcus-1jf",
    "squadra": "Arcus Volley",
    "serie": "1JF",
@@ -670,6 +1082,18 @@
    "avversario": "POLISPORTIVA MAGENTA 2012 ASD - FUCSIA",
    "campo": "SCUOLA MEDIA ORATORIO S. LUIGI",
    "indirizzo": "GARBAGNATE MILANESE - VIA GRAN SASSO 15"
+  },
+  {
+   "id": "pgs-u11-oro",
+   "squadra": "Arcus Volley Oro",
+   "serie": "U11",
+   "gara": "5027",
+   "data": "2026-12-05",
+   "ora": "11:00",
+   "casa_trasferta": "Trasferta",
+   "avversario": "DST VOLLEY TURBIGO",
+   "campo": "",
+   "indirizzo": ""
   },
   {
    "id": "arcus-13f-blu",
@@ -768,6 +1192,18 @@
    "indirizzo": "GARBAGNATE MILANESE - VIA GRAN SASSO 15"
   },
   {
+   "id": "pgs-u12-blu",
+   "squadra": "Arcus Volley blu",
+   "serie": "U12",
+   "gara": "5237",
+   "data": "2026-12-12",
+   "ora": "15:00",
+   "casa_trasferta": "Trasferta",
+   "avversario": "POL. S. GIORGIO CUGGIONO",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
    "id": "arcus-14f",
    "squadra": "Arcus Volley",
    "serie": "14F",
@@ -778,6 +1214,18 @@
    "avversario": "LOVVEY TEAM BLACK",
    "campo": "PALA ARLUNO",
    "indirizzo": "ARLUNO - VIA ENRICO TOTI 4"
+  },
+  {
+   "id": "pgs-u11-blu",
+   "squadra": "Arcus Volley blu",
+   "serie": "U11",
+   "gara": "5056",
+   "data": "2026-12-12",
+   "ora": "18:00",
+   "casa_trasferta": "Casa",
+   "avversario": "OLYMPIA BUCCINASCO",
+   "campo": "",
+   "indirizzo": ""
   },
   {
    "id": "arcus-15f",
@@ -816,6 +1264,18 @@
    "indirizzo": "MILANO - VIA SAPRI 50"
   },
   {
+   "id": "pgs-u12-oro",
+   "squadra": "Arcus Volley Oro",
+   "serie": "U12",
+   "gara": "5325",
+   "data": "2026-12-13",
+   "ora": "15:00",
+   "casa_trasferta": "Trasferta",
+   "avversario": "OLYMPIA BUCCINASCO",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
    "id": "arcus-19f",
    "squadra": "Arcus Volley",
    "serie": "19F",
@@ -826,6 +1286,18 @@
    "avversario": "A.S.D. SAN MASSIMILIANO KOLBE ARANCIONE",
    "campo": "ISTITUTO TIRINNANZI",
    "indirizzo": "LEGNANO - VIA ABRUZZI 23"
+  },
+  {
+   "id": "pgs-mista2-cusago",
+   "squadra": "New VMNP Cusago",
+   "serie": "Mista 2° livello",
+   "gara": "0757",
+   "data": "2026-12-14",
+   "ora": "21:00",
+   "casa_trasferta": "Casa",
+   "avversario": "NJOY VOLLEY CREW",
+   "campo": "",
+   "indirizzo": ""
   },
   {
    "id": "arcus-1jf",
@@ -852,6 +1324,18 @@
    "indirizzo": "ARLUNO - VIA ENRICO TOTI 4"
   },
   {
+   "id": "pgs-mista2-cusago",
+   "squadra": "New VMNP Cusago",
+   "serie": "Mista 2° livello",
+   "gara": "0758",
+   "data": "2026-12-17",
+   "ora": "21:00",
+   "casa_trasferta": "Trasferta",
+   "avversario": "ANNI VERDI 95 NERA",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
    "id": "garbagnate-1df",
    "squadra": "O.s.l. Volley Garbagnate",
    "serie": "1DF",
@@ -862,6 +1346,18 @@
    "avversario": "S.R.V. MILANO ASD",
    "campo": "PALASANTARITA",
    "indirizzo": "MILANO - VIA SANTA RITA DA CASCIA 22"
+  },
+  {
+   "id": "pgs-u11-blu",
+   "squadra": "Arcus Volley blu",
+   "serie": "U11",
+   "gara": "5059",
+   "data": "2026-12-19",
+   "ora": "15:00",
+   "casa_trasferta": "Trasferta",
+   "avversario": "OSG ABBIATEGRASSO",
+   "campo": "",
+   "indirizzo": ""
   },
   {
    "id": "arcus-17f",
@@ -876,6 +1372,18 @@
    "indirizzo": "ARLUNO - VIA ENRICO TOTI 4"
   },
   {
+   "id": "pgs-u11-oro",
+   "squadra": "Arcus Volley Oro",
+   "serie": "U11",
+   "gara": "5030",
+   "data": "2026-12-20",
+   "ora": "10:30",
+   "casa_trasferta": "Casa",
+   "avversario": "VOMIEN",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
    "id": "arcus-14f",
    "squadra": "Arcus Volley",
    "serie": "14F",
@@ -886,6 +1394,18 @@
    "avversario": "PFBRESSO GIALLA",
    "campo": "SCUOLA ELEMENTARE MANZONI",
    "indirizzo": "BRESSO - VIA SIMON DEGATTI ANG. VIA VITTORIO VENETO"
+  },
+  {
+   "id": "pgs-u12-blu",
+   "squadra": "Arcus Volley blu",
+   "serie": "U12",
+   "gara": "5240",
+   "data": "2026-12-20",
+   "ora": "15:00",
+   "casa_trasferta": "Casa",
+   "avversario": "S. MASSIMILIANO KOLBE",
+   "campo": "",
+   "indirizzo": ""
   },
   {
    "id": "arcus-13f-oro",
@@ -936,6 +1456,18 @@
    "indirizzo": "ARLUNO - VIA ENRICO TOTI 4"
   },
   {
+   "id": "pgs-u11-oro",
+   "squadra": "Arcus Volley Oro",
+   "serie": "U11",
+   "gara": "5006",
+   "data": "2027-01-09",
+   "ora": "14:30",
+   "casa_trasferta": "Casa",
+   "avversario": "S.O.I. INVERUNO",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
    "id": "arcus-15f",
    "squadra": "Arcus Volley",
    "serie": "15F",
@@ -972,6 +1504,30 @@
    "indirizzo": "ARLUNO - VIA ENRICO TOTI 4"
   },
   {
+   "id": "pgs-u11-blu",
+   "squadra": "Arcus Volley blu",
+   "serie": "U11",
+   "gara": "5032",
+   "data": "2027-01-09",
+   "ora": "17:30",
+   "casa_trasferta": "Trasferta",
+   "avversario": "NJOY VOLLEY",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
+   "id": "pgs-u12-oro",
+   "squadra": "Arcus Volley Oro",
+   "serie": "U12",
+   "gara": "5329",
+   "data": "2027-01-10",
+   "ora": "15:00",
+   "casa_trasferta": "Casa",
+   "avversario": "POLIS. CORBETTA 2015",
+   "campo": "",
+   "indirizzo": ""
+  },
+  {
    "id": "arcus-17f",
    "squadra": "Arcus Volley",
    "serie": "17F",
@@ -1006,6 +1562,18 @@
    "avversario": "OLYMPIA BUCCINASCO",
    "campo": "PALAZZETTO",
    "indirizzo": "CUSAGO - VIA IV NOVEMBRE"
+  },
+  {
+   "id": "pgs-mista2-cusago",
+   "squadra": "New VMNP Cusago",
+   "serie": "Mista 2° livello",
+   "gara": "0731",
+   "data": "2027-01-10",
+   "ora": "20:15",
+   "casa_trasferta": "Trasferta",
+   "avversario": "GSO OSSONA",
+   "campo": "",
+   "indirizzo": ""
   },
   {
    "id": "garbagnate-1df",
