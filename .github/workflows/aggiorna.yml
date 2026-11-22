@@ -1,0 +1,40 @@
+name: Aggiorna calendari
+
+on:
+  schedule:
+    - cron: "30 5,11,17 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: aggiorna-calendari
+  cancel-in-progress: false
+
+jobs:
+  aggiorna:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Installa il browser
+        run: |
+          pip install playwright
+          playwright install --with-deps chromium
+      - name: Leggi i calendari
+        run: python scraper/scrape.py
+      - name: Salva i dati
+        if: always()
+        run: |
+          mkdir -p debug data
+          touch debug/.gitkeep
+          git config user.name "aggiornamento-automatico"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A data debug
+          git diff --cached --quiet || git commit -m "Aggiorna calendari"
+          git pull --rebase
+          git push

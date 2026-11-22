@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Calendario Partite</title>
+<meta name="theme-color" content="#1B4FD8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap">
+<style>
+/* Layout: tabellone orari. Intestazione con due schede (Partite / Squadre), filtri, poi tabella a righe piene. */
+:root{
+  --bg:#EDF0F3; --surface:#FFFFFF; --soft:#E4E9F0; --ink:#121B24; --muted:#586575; --line:#D3DAE2;
+  --accent:#1B4FD8; --accent-ink:#FFFFFF; --warn:#A8402A;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Barlow",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E141B; --surface:#151D26; --soft:#1C2632; --ink:#E8EDF2; --muted:#94A1B0; --line:#28333F;
+  --accent:#7FA0FF; --accent-ink:#0E141B; --warn:#F09A84; color-scheme:dark}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 var(--body);
+  padding-block:max(20px,env(safe-area-inset-top,0px)) calc(48px + env(safe-area-inset-bottom,0px));
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:980px;margin:0 auto}
+h1{font:700 34px/1 var(--display);text-transform:uppercase;letter-spacing:.02em;margin:0}
+.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 20px;margin-bottom:18px}
+.tabs{display:flex;gap:4px;background:var(--soft);padding:4px;border-radius:10px}
+.tabs a{padding:7px 16px;border-radius:7px;color:var(--muted);text-decoration:none;font-weight:600}
+.tabs a[aria-current="page"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.12)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px}
+.filters{display:grid;gap:14px;margin-bottom:16px}
+.row{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:flex-end}
+label.f{display:grid;gap:4px;font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;min-width:0}
+input[type=date]{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px 10px;min-width:150px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:inherit;font-weight:600;font-size:13px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:6px 13px;cursor:pointer;display:inline-flex;align-items:center;gap:7px}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip.off{opacity:.55}
+.btn{font:inherit;font-weight:600;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:8px 14px;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.meta{margin:0 0 10px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 16px;justify-content:space-between}
+.note{margin:0 0 14px;padding:10px 14px;border-radius:10px;border:1px solid var(--warn);color:var(--warn);background:var(--surface)}
+.note ul{margin:6px 0 0;padding-left:18px}
+.tbl-wrap{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+table{width:100%;border-collapse:collapse}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);text-align:left;padding:11px 14px;background:var(--soft);font-weight:600}
+td{padding:12px 14px;border-top:1px solid var(--line);vertical-align:top}
+tbody tr:first-child td{border-top:0}
+.day{font:600 20px/1.1 var(--display);text-transform:uppercase;letter-spacing:.02em;white-space:nowrap}
+.today{display:inline-block;margin-left:6px;font:600 11px var(--body);letter-spacing:.06em;background:var(--accent);color:var(--accent-ink);border-radius:4px;padding:2px 6px;vertical-align:2px}
+.time{font:600 20px/1.1 var(--display);font-variant-numeric:tabular-nums;white-space:nowrap}
+.team-cell{display:flex;gap:8px;align-items:center;font-weight:600}
+.team-cell small{color:var(--muted);font-weight:500}
+.dot{width:10px;height:10px;border-radius:50%;flex:none}
+.opp{font-weight:500}
+.vs{display:none;color:var(--muted)}
+.ha{display:inline-block;margin-left:8px;font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:1px 5px}
+.loc a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+.loc small{display:block;color:var(--muted)}
+.muted{color:var(--muted)}
+.empty{padding:36px 18px;text-align:center;color:var(--muted)}
+.empty h2{font:700 24px var(--display);text-transform:uppercase;color:var(--ink);margin:0 0 6px}
+.list{display:grid;gap:12px}
+.team header{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.team strong{font:700 22px/1 var(--display);text-transform:uppercase;letter-spacing:.02em}
+.team p{margin:8px 0 0;color:var(--muted)}
+.hint{margin:0 0 14px;color:var(--muted)}
+@media (max-width:640px){
+  h1{font-size:28px}
+  thead{display:none}
+  table,tbody{display:block}
+  tr{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:12px 14px;border-top:1px solid var(--line)}
+  tbody tr:first-child{border-top:0}
+  td{display:block;padding:0;border:0}
+  td.c-day{grid-column:1}
+  td.c-time{grid-column:2;grid-row:1;text-align:right}
+  td.c-team,td.c-opp,td.c-loc{grid-column:1/-1}
+  td.c-team{margin-top:6px}
+  .vs{display:inline}
+  .c-loc{font-size:13.5px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <h1>Calendario partite</h1>
+    <nav class="tabs" aria-label="Sezioni">
+      <a href="#partite" id="tab-partite">Partite</a>
+      <a href="#squadre" id="tab-squadre">Squadre</a>
+    </nav>
+  </div>
+  <main id="view"><div class="panel empty"><h2>Caricamento</h2><p>Leggo i calendari aggiornati.</p></div></main>
+</div>
+
+<script>
+const REPO = 'https://github.com/stelambe/calendario-partite';
+const COLORS = ['#2F6FED','#E0662B','#1E9E6A','#B44FD1','#D6A21A','#D9434F','#1BA5B8','#7A8B99','#8A5A2B'];
+const $ = s => document.querySelector(s);
+const pad = n => String(n).padStart(2, '0');
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const iso = d => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+const toDate = s => { const [y,m,d] = s.split('-').map(Number); return new Date(y, m-1, d); };
+const addDays = (s, n) => { const d = toDate(s); d.setDate(d.getDate() + n); return iso(d); };
+const fmtDay = s => toDate(s).toLocaleDateString('it-IT', {weekday:'short', day:'numeric', month:'short'}).replace(/\./g, '');
+const todayStr = () => iso(new Date());
+const titleCase = s => s.toLowerCase().replace(/(^|[\s\-(\/])(\p{L})/gu, (m, a, b) => a + b.toUpperCase());
+
+let D = null;                       // dati caricati
+let F = {from: todayStr(), to: addDays(todayStr(), 6), off: new Set()};
+try { const o = JSON.parse(localStorage.getItem('partite-off')); if (Array.isArray(o)) F.off = new Set(o); } catch (e) {}
+const saveOff = () => { try { localStorage.setItem('partite-off', JSON.stringify([...F.off])); } catch (e) {} };
+const colorOf = id => COLORS[Math.max(0, D.squadre.findIndex(s => s.id === id)) % COLORS.length];
+
+async function load(){
+  try {
+    const r = await fetch('data/partite.json?t=' + Date.now(), {cache: 'no-store'});
+    if (!r.ok) throw new Error(r.status);
+    D = await r.json();
+  } catch (e) {
+    $('#view').innerHTML = `<div class="panel empty"><h2>Dati non disponibili</h2><p>Non riesco a leggere i calendari. Se l'app è appena stata creata, attendi il primo aggiornamento automatico.</p></div>`;
+    return;
+  }
+  render();
+}
+
+function render(){
+  if (!D) return;
+  const squadre = location.hash === '#squadre';
+  $('#tab-partite').toggleAttribute('aria-current', !squadre);
+  $('#tab-squadre').toggleAttribute('aria-current', squadre);
+  if (!squadre) $('#tab-partite').setAttribute('aria-current', 'page'); else $('#tab-squadre').setAttribute('aria-current', 'page');
+  squadre ? renderTeams() : renderMatches();
+}
+
+function updated(){
+  if (!D.aggiornato) return '';
+  const d = new Date(D.aggiornato);
+  return `Aggiornato il ${d.toLocaleDateString('it-IT', {day:'numeric', month:'short'})} alle ${d.toLocaleTimeString('it-IT', {hour:'2-digit', minute:'2-digit'})}`;
+}
+
+function renderMatches(){
+  const probl = (D.problemi || []).length
+    ? `<div class="note"><strong>Alcuni calendari non sono aggiornati</strong><ul>${D.problemi.map(p => `<li>${esc(p.squadra)}: ${esc(p.messaggio)}</li>`).join('')}</ul></div>` : '';
+  $('#view').innerHTML = `${probl}
+    <section class="panel filters" aria-label="Filtri">
+      <div class="row">
+        <label class="f">Dal<input type="date" id="f-from" value="${F.from}"></label>
+        <label class="f">Al<input type="date" id="f-to" value="${F.to}"></label>
+      </div>
+      <div class="chips" id="quick">
+        <button class="chip" data-q="oggi">Oggi</button>
+        <button class="chip" data-q="domani">Domani</button>
+        <button class="chip" data-q="weekend">Weekend</button>
+        <button class="chip" data-q="7">7 giorni</button>
+        <button class="chip" data-q="30">30 giorni</button>
+        <button class="chip" data-q="tutte">Tutte</button>
+      </div>
+      <div class="chips" id="teamchips">${D.squadre.map(t =>
+        `<button class="chip ${F.off.has(t.id) ? 'off' : ''}" data-team="${esc(t.id)}" aria-pressed="${!F.off.has(t.id)}"><span class="dot" style="background:${colorOf(t.id)}"></span>${esc(t.nome)} ${esc(t.serie)}</button>`).join('')}</div>
+    </section>
+    <p class="meta"><span id="count"></span><span>${esc(updated())}</span></p>
+    <div id="results"></div>`;
+  renderResults();
+}
+
+function renderResults(){
+  const rows = D.partite.filter(p => !F.off.has(p.id) && (!F.from || p.data >= F.from) && (!F.to || p.data <= F.to));
+  const today = todayStr();
+  const range = F.from && F.to ? (F.from === F.to ? `il ${fmtDay(F.from)}` : `dal ${fmtDay(F.from)} al ${fmtDay(F.to)}`) : F.from ? `dal ${fmtDay(F.from)}` : F.to ? `fino al ${fmtDay(F.to)}` : 'in tutto il calendario';
+  $('#count').textContent = rows.length ? `${rows.length} ${rows.length === 1 ? 'partita' : 'partite'} ${range}` : '';
+  if (!rows.length) { $('#results').innerHTML = `<div class="panel empty"><h2>Nessuna partita</h2><p>Nessuna partita ${esc(range)} per le squadre selezionate.</p></div>`; return; }
+  $('#results').innerHTML = `<div class="tbl-wrap"><table>
+    <thead><tr><th>Data</th><th>Squadra</th><th>Avversario</th><th>Ora</th><th>Luogo</th></tr></thead>
+    <tbody>${rows.map(r => `<tr>
+      <td class="c-day"><span class="day">${esc(fmtDay(r.data))}</span>${r.data === today ? '<span class="today">Oggi</span>' : ''}</td>
+      <td class="c-team"><div class="team-cell"><span class="dot" style="background:${colorOf(r.id)}"></span><span>${esc(r.squadra)} <small>${esc(r.serie)}</small></span></div></td>
+      <td class="c-opp opp"><span class="vs">vs</span> ${esc(titleCase(r.avversario))}${r.casa_trasferta ? `<span class="ha">${esc(r.casa_trasferta)}</span>` : ''}</td>
+      <td class="c-time"><span class="time">${r.ora ? esc(r.ora) : '<span class="muted">—</span>'}</span></td>
+      <td class="c-loc loc">${r.campo || r.indirizzo ? `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent([r.campo, r.indirizzo].filter(Boolean).join(', '))}" target="_blank" rel="noopener">${esc(titleCase(r.campo || r.indirizzo))}</a>${r.campo && r.indirizzo ? `<small>${esc(titleCase(r.indirizzo))}</small>` : ''}` : '<span class="muted">—</span>'}</td>
+    </tr>`).join('')}</tbody></table></div>`;
+}
+
+function setQuick(q){
+  const t = todayStr(), dow = toDate(t).getDay();
+  if (q === 'oggi') F.from = F.to = t;
+  else if (q === 'domani') F.from = F.to = addDays(t, 1);
+  else if (q === 'weekend') {
+    if (dow === 0) F.from = F.to = t;
+    else { const sat = addDays(t, 6 - dow); F.from = dow === 6 ? t : sat; F.to = addDays(sat, 1); }
+  }
+  else if (q === '7') { F.from = t; F.to = addDays(t, 6); }
+  else if (q === '30') { F.from = t; F.to = addDays(t, 29); }
+  else { F.from = ''; F.to = ''; }
+  $('#f-from').value = F.from; $('#f-to').value = F.to;
+  renderResults();
+}
+
+function renderTeams(){
+  const n = id => D.partite.filter(p => p.id === id).length;
+  $('#view').innerHTML = `
+    <p class="hint">I calendari vengono letti dal sito della federazione tre volte al giorno. ${esc(updated())}.</p>
+    <div class="list">${D.squadre.map(t => `
+      <article class="panel team"><header><span class="dot" style="background:${colorOf(t.id)}"></span><strong>${esc(t.nome)}</strong><span class="muted">${esc(t.serie)}</span></header>
+      <p>${n(t.id)} partite in calendario · <a href="${esc(t.url)}" target="_blank" rel="noopener">Apri il calendario sul sito</a></p></article>`).join('')}</div>
+    <p class="hint" style="margin-top:16px">Per aggiungere o cambiare una squadra modifica il file <a href="${REPO}/edit/main/squadre.json" target="_blank" rel="noopener">squadre.json</a>.
+    Per aggiornare subito i dati apri <a href="${REPO}/actions/workflows/aggiorna.yml" target="_blank" rel="noopener">Aggiorna calendari</a> e premi Run workflow.</p>`;
+}
+
+document.addEventListener('click', e => {
+  const q = e.target.closest('[data-q]'); if (q) return setQuick(q.dataset.q);
+  const tc = e.target.closest('[data-team]');
+  if (tc) { const id = tc.dataset.team; F.off.has(id) ? F.off.delete(id) : F.off.add(id); saveOff(); renderMatches(); }
+});
+document.addEventListener('input', e => {
+  const el = e.target;
+  if (el.id !== 'f-from' && el.id !== 'f-to') return;
+  F[el.id === 'f-from' ? 'from' : 'to'] = el.value;
+  if (F.from && F.to && F.to < F.from) { if (el.id === 'f-from') { F.to = F.from; $('#f-to').value = F.to; } else { F.from = F.to; $('#f-from').value = F.from; } }
+  renderResults();
+});
+window.addEventListener('hashchange', render);
+load();
+</script>
+</body>
+</html>
