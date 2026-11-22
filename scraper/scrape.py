@@ -99,24 +99,75 @@ def salva_debug(page, nome):
         print(f"  (debug non salvato: {e})")
 
 
-def leggi_pagina(ctx, url, nome_debug):
+JS_NOMI = """
+() => [...document.querySelectorAll('table.rz-grid-table tbody tr')].map(tr => {
+  const td = tr.querySelectorAll('td')[2];
+  const d = td ? td.querySelector('div.fw-bold') : null;
+  return d ? d.textContent.trim() : null;
+})
+"""
+RIGHE_ELENCO = "table.rz-grid-table tbody tr"
+INTESTAZIONE_GARA = 'span.rz-column-title[title="Gara"]'
+
+
+class SquadraNonTrovata(RuntimeError):
+    def __init__(self, messaggio, nomi):
+        super().__init__(messaggio)
+        self.nomi = nomi
+
+
+def scegli_riga(nome, nomi):
+    """Indice della riga dell'elenco che corrisponde al nome cercato (la piu precisa)."""
+    candidati = [(i, n) for i, n in enumerate(nomi) if n and corrisponde(nome, n)]
+    if not candidati:
+        return None
+    esatti = [c for c in candidati if norm(c[1]) == norm(nome)]
+    if esatti:
+        return esatti[0][0]
+    return min(candidati, key=lambda c: len(norm(c[1]).split()))[0]
+
+
+def leggi_tabella_partite(page):
+    page.wait_for_selector(INTESTAZIONE_GARA, timeout=30000)
+    page.wait_for_function(
+        "() => document.querySelectorAll('table.rz-grid-table tbody tr div.rid-08').length > 0",
+        timeout=30000)
+    page.wait_for_timeout(1500)
+    righe = page.evaluate(JS_RIGHE)
+    partite = righe_a_partite(righe)
+    if not partite:
+        raise RuntimeError(f"tabella trovata ma nessuna partita leggibile ({len(righe)} righe)")
+    return partite
+
+
+def leggi_squadra(ctx, url, squadra, nome_debug):
+    """Apre l'elenco del campionato, clicca sulla squadra e legge la tabella delle partite.
+    Restituisce (partite_del_girone, nomi_dell_elenco)."""
     ultimo_errore = None
     for tentativo in (1, 2):
         page = ctx.new_page()
+        nomi = []
         try:
             page.goto(url, wait_until="domcontentloaded", timeout=60000)
-            page.wait_for_selector(SELETTORE, timeout=45000)
-            page.wait_for_timeout(1500)
-            righe = page.evaluate(JS_RIGHE)
-            partite = righe_a_partite(righe)
-            if not partite:
-                raise RuntimeError(f"tabella trovata ma nessuna partita leggibile ({len(righe)} righe)")
-            return partite
+            page.wait_for_selector(RIGHE_ELENCO + " td div.fw-bold", timeout=45000)
+            page.wait_for_timeout(1000)
+            nomi = page.evaluate(JS_NOMI)
+            elenco = [n for n in nomi if n]
+            i = scegli_riga(squadra["nome"], nomi)
+            if i is None:
+                raise SquadraNonTrovata(f"squadra '{squadra['nome']}' non trovata nell'elenco del campionato", elenco)
+            page.locator(RIGHE_ELENCO).nth(i).locator("td").nth(2).locator("div.fw-bold").click()
+            return leggi_tabella_partite(page), elenco
+        except SquadraNonTrovata as e:
+            print(f"  {e}")
+            salva_debug(page, nome_debug)
+            raise
         except Exception as e:
             ultimo_errore = e
             print(f"  tentativo {tentativo} fallito: {e}")
             if tentativo == 2:
                 salva_debug(page, nome_debug)
+                e.nomi = [n for n in nomi if n]
         finally:
             page.close()
         time.sleep(3)
@@ -125,16 +176,14 @@ def leggi_pagina(ctx, url, nome_debug):
 
 def prova(file_html):
     url = pathlib.Path(file_html).resolve().as_uri()
+    squadre = json.loads(SQUADRE.read_text(encoding="utf-8"))
+    sq = next(s for s in squadre if s["id"] == "arcus-17f")
     with sync_playwright() as p:
         browser = p.chromium.launch()
         ctx = browser.new_context()
-        tutte = leggi_pagina(ctx, url, "prova")
+        tutte, elenco = leggi_squadra(ctx, url, sq, "prova")
         browser.close()
-    print(f"Partite lette: {len(tutte)}")
-    for r in tutte:
-        print(" ", r)
-    squadre = json.loads(SQUADRE.read_text(encoding="utf-8"))
-    sq = next(s for s in squadre if s["id"] == "arcus-17f")
+    print(f"Squadre nell'elenco: {len(elenco)}; partite lette: {len(tutte)}")
     print("Partite di", sq["nome"], sq["serie"])
     for r in partite_della_squadra(sq, tutte):
         print(" ", r)
@@ -145,39 +194,33 @@ def main():
     vecchio = json.loads(DATI.read_text(encoding="utf-8")) if DATI.exists() else {}
     vecchie_partite = vecchio.get("partite", [])
 
-    per_url, errori, nomi = {}, {}, {}
-    url_unici = list(dict.fromkeys(s["url"] for s in squadre))
+    DEBUG.mkdir(exist_ok=True)
+    for f in DEBUG.glob("*"):
+        if f.name != ".gitkeep":
+            f.unlink()
 
-    with sync_playwright() as p:
-        browser = p.chromium.launch()
-        ctx = browser.new_context(locale="it-IT", timezone_id="Europe/Rome")
-        for i, url in enumerate(url_unici):
-            codice = url.rstrip("/").split("/")[-2]
-            print(f"Leggo {url}")
-            try:
-                tutte = leggi_pagina(ctx, url, f"campionato-{codice}")
-                per_url[url] = tutte
-                nomi[codice] = sorted({n for q in tutte for n in (q["casa"], q["ospite"])})
-                print(f"  ok: {len(tutte)} partite, {len(nomi[codice])} squadre")
-            except Exception as e:
-                errori[url] = str(e)
-                print(f"  ERRORE: {e}")
-            if i < len(url_unici) - 1:
-                time.sleep(2)
-        browser.close()
-
-    partite, problemi = [], []
-    for s in squadre:
-        if s["url"] in per_url:
-            trovate = partite_della_squadra(s, per_url[s["url"]])
+    partite, problemi, nomi, falliti = [], [], {}, 0
+    for i, s in enumerate(squadre):
+        codice = s["url"].rstrip("/").split("/")[-2]
+        etichetta = f"{s['nome']} {s['serie']}"
+        print(f"Leggo {etichetta}: {s['url']}")
+        try:
+            tutte, elenco = leggi_squadra(RUNTIME["ctx"], s["url"], s, f"{s['id']}")
+            nomi[codice] = elenco
+            trovate = partite_della_squadra(s, tutte)
+            print(f"  ok: {len(tutte)} partite nel girone, {len(trovate)} della squadra")
             if not trovate:
-                problemi.append({"squadra": f"{s['nome']} {s['serie']}",
-                                 "messaggio": "nessuna partita trovata con questo nome: controlla data/nomi_squadre.json"})
+                problemi.append({"squadra": etichetta, "messaggio": "nessuna partita trovata nella tabella"})
             partite += trovate
-        else:
-            problemi.append({"squadra": f"{s['nome']} {s['serie']}",
-                             "messaggio": "sito non raggiungibile, mostro i dati dell'ultimo aggiornamento riuscito"})
+        except Exception as e:
+            falliti += 1
+            if getattr(e, "nomi", None):
+                nomi[codice] = e.nomi
+            print(f"  ERRORE: {e}")
+            problemi.append({"squadra": etichetta, "messaggio": str(e)[:160]})
             partite += [p for p in vecchie_partite if p.get("id") == s["id"]]
+        if i < len(squadre) - 1:
+            time.sleep(2)
 
     partite.sort(key=lambda p: (p["data"], p["ora"], p["squadra"]))
     DATI.parent.mkdir(exist_ok=True)
@@ -191,12 +234,25 @@ def main():
         NOMI.write_text(json.dumps(nomi, ensure_ascii=False, indent=1), encoding="utf-8")
 
     print(f"Salvate {len(partite)} partite. Problemi: {len(problemi)}")
-    if url_unici and len(errori) == len(url_unici):
+    if squadre and falliti == len(squadre):
         sys.exit(1)
+
+
+RUNTIME = {}
+
+
+def avvia():
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+        RUNTIME["ctx"] = browser.new_context(locale="it-IT", timezone_id="Europe/Rome")
+        try:
+            main()
+        finally:
+            browser.close()
 
 
 if __name__ == "__main__":
     if len(sys.argv) > 2 and sys.argv[1] == "--prova":
         prova(sys.argv[2])
     else:
-        main()
+        avvia()
