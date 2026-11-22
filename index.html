@@ -65,6 +65,10 @@ tbody tr:first-child td{border-top:0}
 .loc a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
 .loc small{display:block;color:var(--muted)}
 .muted{color:var(--muted)}
+.c-gara{color:var(--muted);font-size:13px;white-space:nowrap}
+.gl{display:none}
+.res{font:700 17px var(--display);letter-spacing:.02em;white-space:nowrap}
+td.c-res{text-align:center}
 .empty{padding:36px 18px;text-align:center;color:var(--muted)}
 .empty h2{font:700 24px var(--display);text-transform:uppercase;color:var(--ink);margin:0 0 6px}
 .list{display:grid;gap:12px}
@@ -81,7 +85,13 @@ tbody tr:first-child td{border-top:0}
   td{display:block;padding:0;border:0}
   td.c-day{grid-column:1}
   td.c-time{grid-column:2;grid-row:1;text-align:right}
-  td.c-team,td.c-opp,td.c-loc{grid-column:1/-1}
+  td.c-team,td.c-loc,td.c-gara{grid-column:1/-1}
+  td.c-opp{grid-column:1}
+  td.c-res{grid-column:2;text-align:right;align-self:center}
+  td.c-res .muted{display:none}
+  td.c-gara{font-size:12px;margin-top:4px}
+  td.c-gara .muted{display:none}
+  .gl{display:inline}
   td.c-team{margin-top:6px}
   .vs{display:inline}
   .c-loc{font-size:13.5px}
@@ -232,11 +242,13 @@ function renderResults(){
     <p>Stampato il ${esc(new Date().toLocaleDateString('it-IT', {day:'numeric', month:'long', year:'numeric'}))}</p>`;
   if (!rows.length) { $('#results').innerHTML = `<div class="panel empty"><h2>Nessuna partita</h2><p>Nessuna partita ${esc(range)} per le squadre selezionate.</p></div>`; return; }
   $('#results').innerHTML = `<div class="tbl-wrap"><table>
-    <thead><tr><th>Data</th><th>Squadra</th><th>Avversario</th><th>Ora</th><th>Luogo</th></tr></thead>
+    <thead><tr><th>Data</th><th>Gara</th><th>Squadra</th><th>Avversario</th><th>Ris.</th><th>Ora</th><th>Luogo</th></tr></thead>
     <tbody>${rows.map(r => `<tr class="${fonteId(r.id)}">
       <td class="c-day"><span class="day">${esc(fmtDay(r.data))}</span>${r.data === today ? '<span class="today">Oggi</span>' : ''}</td>
+      <td class="c-gara">${r.gara ? `<span class="gl">Gara </span>${esc(r.gara)}` : '<span class="muted">—</span>'}</td>
       <td class="c-team"><div class="team-cell"><span class="dot" style="background:${colorOf(r.id)}"></span><span>${esc(r.squadra)} <small>${esc(r.serie)}</small></span></div></td>
       <td class="c-opp opp"><span class="vs">vs</span> ${esc(titleCase(r.avversario))}${r.casa_trasferta ? `<span class="ha">${esc(r.casa_trasferta)}</span>` : ''}</td>
+      <td class="c-res">${r.risultato ? `<span class="res">${esc(r.risultato)}</span>` : '<span class="muted">—</span>'}</td>
       <td class="c-time"><span class="time">${r.ora ? esc(r.ora) : '<span class="muted">—</span>'}</span></td>
       <td class="c-loc loc">${r.campo || r.indirizzo ? `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent([r.campo, r.indirizzo].filter(Boolean).join(', '))}" target="_blank" rel="noopener">${esc(titleCase(r.campo || r.indirizzo))}</a>${r.campo && r.indirizzo ? `<small>${esc(titleCase(r.indirizzo))}</small>` : ''}` : '<span class="muted">—</span>'}</td>
     </tr>`).join('')}</tbody></table></div>`;

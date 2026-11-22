@@ -25,8 +25,24 @@ SELETTORE = "table.rz-grid-table tbody tr"
 JS_RIGHE = """
 () => [...document.querySelectorAll('table.rz-grid-table tbody tr')].map(tr =>
   [...tr.querySelectorAll('td')].map(td =>
-    [...td.querySelectorAll('div.rid-08')].map(d => d.textContent.trim())))
+    [...td.querySelectorAll('div.rid-08')].map(d => d.textContent.trim())
+      .concat(td.querySelector('div.rid-08') ? [] : [td.textContent.trim()].filter(Boolean))))
 """
+
+
+def leggi_risultato(testo, parziali=""):
+    """Estrae i set vinti 'casa-ospite' (es. '3-0'). Se manca, li conta dai parziali ('25-20 18-25 ...').
+    Restituisce '' se la partita non risulta giocata."""
+    m = re.search(r"(\d+)\s*[-–:]\s*(\d+)", testo or "")
+    if m and (int(m.group(1)) or int(m.group(2))):
+        return f"{int(m.group(1))}-{int(m.group(2))}"
+    sets = re.findall(r"(\d+)\s*[-–:]\s*(\d+)", parziali or "")
+    if sets:
+        a = sum(int(x) > int(y) for x, y in sets)
+        b = sum(int(y) > int(x) for x, y in sets)
+        if a or b:
+            return f"{a}-{b}"
+    return ""
 
 
 def norm(testo):
@@ -60,6 +76,7 @@ def righe_a_partite(righe):
                 ora = f"{int(t.group(1)):02d}:{t.group(2)}"
         partite.append({
             "gara": c[0][0] if c[0] else "",
+            "risultato": leggi_risultato(c[3][0] if len(c) > 3 and c[3] else "", c[4][0] if len(c) > 4 and c[4] else ""),
             "data": data,
             "ora": ora,
             "casa": c[2][0],
@@ -83,9 +100,12 @@ def partite_della_squadra(squadra, tutte):
             ct, avv = "Trasferta", p["casa"]
         else:
             ct, avv = "", f"{p['casa']} - {p['ospite']}"
+        ris = p.get("risultato", "")
+        if ris and ct == "Trasferta":  # sempre dal punto di vista della nostra squadra
+            ris = "-".join(reversed(ris.split("-")))
         out.append({
             "id": squadra["id"], "squadra": squadra.get("etichetta", squadra["nome"]), "serie": squadra["serie"],
-            "gara": p["gara"], "data": p["data"], "ora": p["ora"],
+            "gara": p["gara"], "risultato": ris, "data": p["data"], "ora": p["ora"],
             "casa_trasferta": ct, "avversario": avv,
             "campo": p["campo"], "indirizzo": p["indirizzo"],
         })
@@ -290,6 +310,7 @@ def pgs_righe(tab):
 
     i_gara, i_data, i_ora = col("gara", 0), col("data", 2), col("ora", 3)
     i_ind, i_casa, i_osp = col("indirizzo", 4), col("squadra in casa", 5), col("squadra in trasferta", 6)
+    i_ris = col("risultato", 7)
     partite = []
     for c in tab["r"]:
         if len(c) <= max(i_data, i_ora, i_casa, i_osp):
@@ -300,6 +321,7 @@ def pgs_righe(tab):
         t = re.search(r"(\d{1,2})[.:](\d{2})", c[i_ora])
         partite.append({
             "gara": c[i_gara] if i_gara < len(c) else "",
+            "risultato": leggi_risultato(c[i_ris]) if i_ris < len(c) else "",
             "data": f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}",
             "ora": f"{int(t.group(1)):02d}:{t.group(2)}" if t else "",
             "casa": c[i_casa], "ospite": c[i_osp],
