@@ -84,7 +84,7 @@ def partite_della_squadra(squadra, tutte):
         else:
             ct, avv = "", f"{p['casa']} - {p['ospite']}"
         out.append({
-            "id": squadra["id"], "squadra": squadra["nome"], "serie": squadra["serie"],
+            "id": squadra["id"], "squadra": squadra.get("etichetta", squadra["nome"]), "serie": squadra["serie"],
             "gara": p["gara"], "data": p["data"], "ora": p["ora"],
             "casa_trasferta": ct, "avversario": avv,
             "campo": p["campo"], "indirizzo": p["indirizzo"],
@@ -388,6 +388,7 @@ def prova_pgs(file_html, id_squadra):
     url = pathlib.Path(file_html).resolve().as_uri()
     squadre = json.loads(SQUADRE.read_text(encoding="utf-8"))
     sq = next(s for s in squadre if s["id"] == id_squadra)
+    sq = {**sq, "nome": sq.get("cerca", sq["nome"]), "etichetta": sq["nome"]}
     with sync_playwright() as p:
         browser = p.chromium.launch()
         ctx = browser.new_context()
@@ -418,9 +419,11 @@ def main():
 
     partite, problemi, nomi, falliti = [], [], {}, 0
     pgs_info = {"campionati": [], "categorie": [], "squadre": {}}
-    for i, s in enumerate(squadre):
+    for i, s0 in enumerate(squadre):
+        # "nome" e quello mostrato nell'app; "cerca" (se c'e) e il nome usato sul sito
+        s = {**s0, "nome": s0.get("cerca", s0["nome"]), "etichetta": s0["nome"]}
         codice = s["url"].rstrip("/").split("/")[-2]
-        etichetta = f"{s['nome']} {s['serie']}"
+        etichetta = f"{s0['nome']} {s0['serie']}"
         print(f"Leggo {etichetta}: {s['url']}")
         try:
             if s.get("fonte") == "pgs":

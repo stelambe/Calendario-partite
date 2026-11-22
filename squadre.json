@@ -12,6 +12,6 @@
   {"id": "pgs-u11-blu", "fonte": "pgs", "nome": "Arcus Volley blu", "serie": "U11", "campionato": "Invernale 2026/2027", "categoria": "U11", "url": "https://volley.pgsmilano.org/calendari"},
   {"id": "pgs-u12-oro", "fonte": "pgs", "nome": "Arcus Volley Oro", "serie": "U12", "campionato": "Invernale 2026/2027", "categoria": "U12", "url": "https://volley.pgsmilano.org/calendari"},
   {"id": "pgs-u12-blu", "fonte": "pgs", "nome": "Arcus Volley blu", "serie": "U12", "campionato": "Invernale 2026/2027", "categoria": "U12", "url": "https://volley.pgsmilano.org/calendari"},
-  {"id": "pgs-u13-blu", "fonte": "pgs", "nome": "Arcus Volley blu", "serie": "U13", "campionato": "Invernale 2026/2027", "categoria": "U13", "url": "https://volley.pgsmilano.org/calendari"},
+  {"id": "pgs-u13-blu", "fonte": "pgs", "nome": "Arcus Volley blu", "serie": "U13", "campionato": "Invernale 2026/2027", "categoria": "U13", "url": "https://volley.pgsmilano.org/calendari", "cerca": "Arcus Volley"},
   {"id": "pgs-mista2-cusago", "fonte": "pgs", "nome": "New VMNP Cusago", "serie": "Mista 2° livello", "campionato": "Invernale 2026/2027", "categoria": "Mista 2° livello", "url": "https://volley.pgsmilano.org/calendari"}
 ]
