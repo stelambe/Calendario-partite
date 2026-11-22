@@ -16,11 +16,12 @@
   --accent:#1B4FD8; --accent-ink:#FFFFFF; --warn:#A8402A;
   --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
   --body:"Barlow",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-fipav:#E4EDFB; --f-pgs:#E3F3E8; --f-reg:#FBEFD9;
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#0E141B; --surface:#151D26; --soft:#1C2632; --ink:#E8EDF2; --muted:#94A1B0; --line:#28333F;
-  --accent:#7FA0FF; --accent-ink:#0E141B; --warn:#F09A84; color-scheme:dark}}
+  --accent:#7FA0FF; --accent-ink:#0E141B; --warn:#F09A84; --f-fipav:#1B2A44; --f-pgs:#173125; --f-reg:#3A2E18; color-scheme:dark}}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 var(--body);
@@ -101,7 +102,7 @@ td.c-res{text-align:center}
 .seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.12)}
 .print-head{display:none}
 @media print{
-  :root:root{--bg:#fff;--surface:#fff;--soft:#f0f0f0;--ink:#000;--muted:#444;--line:#999;--accent:#000;--accent-ink:#fff;color-scheme:light}
+  :root:root{--bg:#fff;--surface:#fff;--soft:#f0f0f0;--ink:#000;--muted:#444;--line:#999;--accent:#000;--accent-ink:#fff;--f-fipav:#E4EDFB;--f-pgs:#E3F3E8;--f-reg:#FBEFD9;color-scheme:light}
   @page{margin:12mm}
   body{padding:0;font-size:11pt;background:#fff;color:#000}
   .top,.filters,.note,.meta,.tabs{display:none!important}
@@ -110,7 +111,7 @@ td.c-res{text-align:center}
   .print-head p{margin:2px 0;font-size:10pt;color:#333}
   .tbl-wrap{border:1px solid #999;border-radius:0}
   th{background:#eee!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  tr{break-inside:avoid}
+  tr{break-inside:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .dot{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .today{border:1px solid #000;background:#fff;color:#000}
   .loc a{text-decoration:none}
@@ -120,6 +121,13 @@ details.teams summary::-webkit-details-marker{display:none}
 details.teams summary::after{content:"";width:8px;height:8px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);margin-top:-3px;transition:transform .15s}
 details.teams[open] summary::after{transform:rotate(-135deg);margin-top:3px}
 details.teams .chips{margin-top:10px}
+tr.f-fipav{background:var(--f-fipav)}
+tr.f-pgs{background:var(--f-pgs)}
+tr.f-reg{background:var(--f-reg)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin:0 0 12px;font-size:13px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:14px;height:14px;border-radius:4px;border:1px solid var(--line);display:inline-block;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.legend .f-fipav i{background:var(--f-fipav)} .legend .f-pgs i{background:var(--f-pgs)} .legend .f-reg i{background:var(--f-reg)}
 </style>
 </head>
 <body>
@@ -151,6 +159,9 @@ let D = null;                       // dati caricati
 let F = {from: todayStr(), to: addDays(todayStr(), 6), off: new Set(), ct: '', open: false};
 try { const o = JSON.parse(localStorage.getItem('partite-off')); if (Array.isArray(o)) F.off = new Set(o); } catch (e) {}
 const saveOff = () => { try { localStorage.setItem('partite-off', JSON.stringify([...F.off])); } catch (e) {} };
+const FONTI = {'f-fipav': 'FIPAV', 'f-pgs': 'PGS', 'f-reg': 'Regionale'};
+const fonteDi = t => /pgsmilano/i.test(t.url) ? 'f-pgs' : /matchshare|lombardia\.federvolley/i.test(t.url) ? 'f-reg' : 'f-fipav';
+const fonteId = id => { const t = D.squadre.find(s => s.id === id); return t ? fonteDi(t) : 'f-fipav'; };
 const colorOf = id => COLORS[Math.max(0, D.squadre.findIndex(s => s.id === id)) % COLORS.length];
 
 async function load(){
@@ -212,6 +223,7 @@ function renderMatches(){
       </details>
     </section>
     <p class="meta"><span id="count"></span><span>${esc(updated())}</span></p>
+    <p class="legend" id="legend">${[...new Set(D.squadre.map(fonteDi))].map(k => `<span class="${k}"><i></i>${FONTI[k]}</span>`).join('')}</p>
     <div class="print-head" id="printhead"></div>
     <div id="results"></div>`;
   renderResults();
@@ -231,7 +243,7 @@ function renderResults(){
   if (!rows.length) { $('#results').innerHTML = `<div class="panel empty"><h2>Nessuna partita</h2><p>Nessuna partita ${esc(range)} per le squadre selezionate.</p></div>`; return; }
   $('#results').innerHTML = `<div class="tbl-wrap"><table>
     <thead><tr><th>Data</th><th>Gara</th><th>Squadra</th><th>Avversario</th><th>Ris.</th><th>Ora</th><th>Luogo</th></tr></thead>
-    <tbody>${rows.map(r => `<tr>
+    <tbody>${rows.map(r => `<tr class="${fonteId(r.id)}">
       <td class="c-day"><span class="day">${esc(fmtDay(r.data))}</span>${r.data === today ? '<span class="today">Oggi</span>' : ''}</td>
       <td class="c-gara">${r.gara ? `<span class="gl">Gara </span>${esc(r.gara)}` : '<span class="muted">—</span>'}</td>
       <td class="c-team"><div class="team-cell"><span class="dot" style="background:${colorOf(r.id)}"></span><span>${esc(r.squadra)} <small>${esc(r.serie)}</small></span></div></td>
