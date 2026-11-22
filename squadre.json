@@ -7,5 +7,11 @@
   {"id": "arcus-15f", "nome": "Arcus Volley", "serie": "15F", "url": "https://www.sol.milano.federvolley.it/calendarioris/1001242/2026"},
   {"id": "arcus-14f", "nome": "Arcus Volley", "serie": "14F", "url": "https://www.sol.milano.federvolley.it/calendarioris/1001244/2026"},
   {"id": "arcus-13f-blu", "nome": "Arcus Volley blu", "serie": "13F", "url": "https://www.sol.milano.federvolley.it/calendarioris/1001247/2026"},
-  {"id": "arcus-13f-oro", "nome": "Arcus Volley oro", "serie": "13F", "url": "https://www.sol.milano.federvolley.it/calendarioris/1001247/2026"}
+  {"id": "arcus-13f-oro", "nome": "Arcus Volley oro", "serie": "13F", "url": "https://www.sol.milano.federvolley.it/calendarioris/1001247/2026"},
+  {"id": "pgs-u11-oro", "fonte": "pgs", "nome": "Arcus Volley Oro", "serie": "U11", "campionato": "Invernale 2026/2027", "categoria": "U11", "url": "https://volley.pgsmilano.org/calendari"},
+  {"id": "pgs-u11-blu", "fonte": "pgs", "nome": "Arcus Volley blu", "serie": "U11", "campionato": "Invernale 2026/2027", "categoria": "U11", "url": "https://volley.pgsmilano.org/calendari"},
+  {"id": "pgs-u12-oro", "fonte": "pgs", "nome": "Arcus Volley Oro", "serie": "U12", "campionato": "Invernale 2026/2027", "categoria": "U12", "url": "https://volley.pgsmilano.org/calendari"},
+  {"id": "pgs-u12-blu", "fonte": "pgs", "nome": "Arcus Volley blu", "serie": "U12", "campionato": "Invernale 2026/2027", "categoria": "U12", "url": "https://volley.pgsmilano.org/calendari"},
+  {"id": "pgs-u13-blu", "fonte": "pgs", "nome": "Arcus Volley blu", "serie": "U13", "campionato": "Invernale 2026/2027", "categoria": "U13", "url": "https://volley.pgsmilano.org/calendari"},
+  {"id": "pgs-mista2-cusago", "fonte": "pgs", "nome": "New VMNP Cusago", "serie": "Mista 2° livello", "campionato": "Invernale 2026/2027", "categoria": "Mista 2° livello", "url": "https://volley.pgsmilano.org/calendari"}
 ]

@@ -9,6 +9,12 @@ dal sito della federazione (sol.milano.federvolley.it) tre volte al giorno.
 - `.github/workflows/aggiorna.yml`: lancia il programma alle 05:30, 11:30 e 17:30 (ora UTC) e salva `data/partite.json`.
 - `index.html`: l'app, legge `data/partite.json`.
 
+## Squadre di PGS Milano
+Le squadre con `"fonte": "pgs"` si leggono da volley.pgsmilano.org: il programma sceglie campionato,
+categoria e squadra come faresti con il mouse. All'inizio di una nuova stagione cambia il campo
+`campionato` (per esempio `Invernale 2026/2027`) nelle squadre PGS. Dopo ogni aggiornamento,
+`data/nomi_squadre.json` elenca i campionati, le categorie e le squadre che il sito offre.
+
 ## Aggiungere o cambiare una squadra
 Apri `squadre.json` su GitHub, premi la matita (Edit), aggiungi una riga uguale alle altre e salva.
 Il nome deve comparire nel calendario del sito (maiuscole e punti non contano). Dopo il prossimo
