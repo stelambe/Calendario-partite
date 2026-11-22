@@ -399,6 +399,81 @@ def prova_pgs(file_html, id_squadra):
         print(" ", r)
 
 
+
+# ---------------------------------------------------------------------
+#  Calendari regionali FIPAV Lombardia (matchshare.it): una pagina per girone
+# ---------------------------------------------------------------------
+JS_MATCHSHARE = """
+() => [...document.querySelectorAll('tr.match[data-mid]')].map(tr => ({
+  gara: tr.dataset.numero || '',
+  giorno: tr.dataset.giorno || '',
+  ora: tr.dataset.ora || '',
+  squadre: [...tr.querySelectorAll('span.squadra')].map(s => s.textContent.replace(/\\s+/g, ' ').trim()),
+  luogo: ((tr.querySelector('td.placetd') || {}).textContent || '').replace(/\\s+/g, ' ').trim()
+}))
+"""
+
+
+def matchshare_a_partite(righe):
+    partite = []
+    for r in righe:
+        if len(r.get("squadre", [])) < 2:
+            continue
+        m = re.match(r"(\d{4})-(\d{2})-(\d{2})", r.get("giorno", ""))
+        if not m:
+            continue
+        t = re.match(r"(\d{1,2}):(\d{2})", r.get("ora", ""))
+        partite.append({
+            "gara": r.get("gara", ""),
+            "data": f"{m.group(1)}-{m.group(2)}-{m.group(3)}",
+            "ora": f"{int(t.group(1)):02d}:{t.group(2)}" if t else "",
+            "casa": r["squadre"][0], "ospite": r["squadre"][1],
+            "campo": r.get("luogo", ""), "indirizzo": "",
+        })
+    return partite
+
+
+def leggi_matchshare(ctx, url, nome_debug):
+    """Apre la pagina del girone e legge tutte le partite (la pagina contiene tutte le giornate).
+    Restituisce (partite, nomi_delle_squadre)."""
+    ultimo = None
+    for tentativo in (1, 2):
+        page = ctx.new_page()
+        try:
+            page.goto(url, wait_until="domcontentloaded", timeout=60000)
+            page.wait_for_selector("tr.match[data-mid]", state="attached", timeout=45000)
+            partite = matchshare_a_partite(page.evaluate(JS_MATCHSHARE))
+            if not partite:
+                raise RuntimeError("pagina trovata ma nessuna partita leggibile")
+            nomi = sorted({n for q in partite for n in (q["casa"], q["ospite"])})
+            return partite, nomi
+        except Exception as e:
+            ultimo = e
+            print(f"  tentativo {tentativo} fallito: {e}")
+            if tentativo == 2:
+                salva_debug(page, nome_debug)
+        finally:
+            page.close()
+        time.sleep(3)
+    raise ultimo
+
+
+def prova_matchshare(file_html, id_squadra):
+    url = pathlib.Path(file_html).resolve().as_uri()
+    squadre = json.loads(SQUADRE.read_text(encoding="utf-8"))
+    sq = next(s for s in squadre if s["id"] == id_squadra)
+    sq = {**sq, "nome": sq.get("cerca", sq["nome"]), "etichetta": sq["nome"]}
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+        ctx = browser.new_context()
+        tutte, nomi = leggi_matchshare(ctx, url, "prova-ms")
+        browser.close()
+    mie = partite_della_squadra(sq, tutte)
+    print(f"Partite nel girone: {len(tutte)}; squadre: {len(nomi)}; della squadra: {len(mie)}")
+    for r in mie[:4]:
+        print(" ", r)
+
+
 def unisci_info(tot, info):
     for k in ("campionati", "categorie"):
         for v in info.get(k, []):
@@ -426,7 +501,10 @@ def main():
         etichetta = f"{s0['nome']} {s0['serie']}"
         print(f"Leggo {etichetta}: {s['url']}")
         try:
-            if s.get("fonte") == "pgs":
+            if s.get("fonte") == "matchshare":
+                tutte, elenco = leggi_matchshare(RUNTIME["ctx"], s["url"], s["id"])
+                nomi[s["id"]] = elenco
+            elif s.get("fonte") == "pgs":
                 tutte, info = leggi_pgs(RUNTIME["ctx"], s, s["id"], url=s["url"])
                 unisci_info(pgs_info, info)
             else:
@@ -481,7 +559,9 @@ def avvia():
 
 
 if __name__ == "__main__":
-    if len(sys.argv) > 3 and sys.argv[1] == "--prova-pgs":
+    if len(sys.argv) > 3 and sys.argv[1] == "--prova-ms":
+        prova_matchshare(sys.argv[2], sys.argv[3])
+    elif len(sys.argv) > 3 and sys.argv[1] == "--prova-pgs":
         prova_pgs(sys.argv[2], sys.argv[3])
     elif len(sys.argv) > 2 and sys.argv[1] == "--prova":
         prova(sys.argv[2])
