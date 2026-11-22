@@ -15,6 +15,11 @@ categoria e squadra come faresti con il mouse. All'inizio di una nuova stagione 
 `campionato` (per esempio `Invernale 2026/2027`) nelle squadre PGS. Dopo ogni aggiornamento,
 `data/nomi_squadre.json` elenca i campionati, le categorie e le squadre che il sito offre.
 
+## Squadre dei calendari regionali (FIPAV Lombardia)
+Le squadre con `"fonte": "matchshare"` si leggono dalla pagina del loro girone: il link contiene il numero
+del girone (`sid=...`). Per altri gironi, scegli il girone sul sito regionale e copia l'indirizzo della pagina
+che si apre. Se nel sito la squadra ha un nome diverso, scrivilo nel campo `cerca`.
+
 ## Aggiungere o cambiare una squadra
 Apri `squadre.json` su GitHub, premi la matita (Edit), aggiungi una riga uguale alle altre e salva.
 Il nome deve comparire nel calendario del sito (maiuscole e punti non contano). Dopo il prossimo
