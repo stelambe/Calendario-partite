@@ -171,7 +171,15 @@ async function load(){
     if (!r.ok) throw new Error(r.status);
     D = await r.json();
     // squadre "nascoste": visibili solo aprendo l'indirizzo con ?tuo in fondo
-    if (!new URLSearchParams(location.search).has('tuo')) {
+    // ?tuo la attiva e il telefono la ricorda (anche per l'app installata); ?base la disattiva
+    const qs = new URLSearchParams(location.search);
+    let tuo = qs.has('tuo');
+    try {
+      if (qs.has('tuo')) localStorage.setItem('tuo', '1');
+      if (qs.has('base')) localStorage.removeItem('tuo');
+      tuo = tuo || (!qs.has('base') && localStorage.getItem('tuo') === '1');
+    } catch (e) {}
+    if (!tuo) {
       const nasc = new Set(D.squadre.filter(s => s.nascosta).map(s => s.id));
       D.squadre = D.squadre.filter(s => !nasc.has(s.id));
       D.partite = D.partite.filter(p => !nasc.has(p.id));

@@ -38,3 +38,5 @@ Il sito del regionale (matchshare.it) blocca i server di GitHub (Cloudflare). Pe
 
 ## Squadra nascosta
 Una squadra con `"nascosta": true` in `squadre.json` non compare nell'app per i visitatori. Per vederla si apre l'indirizzo con `?tuo` in fondo (es. `.../Calendario-partite/?tuo`). Attenzione: non è segreta, i dati restano nel file pubblico `data/partite.json`.
+
+Il telefono ricorda `?tuo` (anche nell'app installata). Per tornare alla vista normale su un dispositivo: aprire l'indirizzo con `?base`.
