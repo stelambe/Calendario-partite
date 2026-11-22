@@ -347,29 +347,48 @@ def spezza_luogo(testo):
 
 
 def leggi_indirizzi(page, squadra, partite):
-    """Nella tabella PGS il luogo e dietro un'icona a spillo: si clicca, si legge la finestra 'Campo di gioco' e si chiude."""
+    """Nella tabella PGS il luogo e dietro un'icona a spillo: si clicca, si aspetta che nella finestra
+    'Campo di gioco' compaia l'indirizzo, si legge e si chiude. Ogni esito e annotato in debug/."""
     primo = True
+    log = []
     for p in partite:
         if not (corrisponde(squadra["nome"], p["casa"]) or corrisponde(squadra["nome"], p["ospite"])):
             continue
+        esito = ""
         try:
             cella = page.locator("table tbody tr").nth(p["riga"]).locator("td").nth(p["col_ind"])
             icona = cella.locator("svg, button").first
             if icona.count() == 0:
+                esito = "nessuna icona"
                 continue
             icona.click(timeout=5000)
             page.wait_for_selector('[role="dialog"]', timeout=5000)
-            righe = [l.strip() for l in page.evaluate(JS_DIALOGO).split("\n")
-                     if l.strip() and l.strip().lower() not in SCARTA_DIALOGO]
+            righe, grezzo = [], ""
+            for _ in range(16):  # fino a ~8 secondi: l'indirizzo puo arrivare dopo l'apertura
+                grezzo = page.evaluate(JS_DIALOGO)
+                righe = [l.strip() for l in grezzo.split("\n")
+                         if l.strip() and l.strip().lower() not in SCARTA_DIALOGO]
+                if righe:
+                    break
+                page.wait_for_timeout(500)
             if primo:
                 salva_debug(page, f"{squadra['id']}-spillo")
                 primo = False
             if righe:
                 p["campo"], p["indirizzo"] = spezza_luogo(righe[0])
+                esito = "ok"
+            else:
+                esito = f"finestra senza indirizzo: {grezzo!r}"
+                salva_debug(page, f"{squadra['id']}-vuota-{p.get('gara')}")
         except Exception as e:
-            print(f"  luogo non letto (gara {p.get('gara')}): {str(e)[:100]}")
+            esito = f"errore: {str(e)[:120]}"
         finally:
+            log.append(f"{p.get('gara')} {p.get('data')}: {esito}")
             chiudi_dialogo(page)
+    try:
+        (DEBUG / f"{squadra['id']}-luoghi.txt").write_text("\n".join(log), encoding="utf-8")
+    except Exception:
+        pass
 
 
 def pgs_righe(tab):
