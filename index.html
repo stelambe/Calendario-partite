@@ -17,11 +17,12 @@
   --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
   --body:"Barlow",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --f-fipav:#E4EDFB; --f-pgs:#E3F3E8; --f-reg:#FBEFD9;
+  --d-fipav:#6E9BE8; --d-pgs:#5DBB84; --d-reg:#E3A84A;
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#0E141B; --surface:#151D26; --soft:#1C2632; --ink:#E8EDF2; --muted:#94A1B0; --line:#28333F;
-  --accent:#7FA0FF; --accent-ink:#0E141B; --warn:#F09A84; --f-fipav:#1B2A44; --f-pgs:#173125; --f-reg:#3A2E18; color-scheme:dark}}
+  --accent:#7FA0FF; --accent-ink:#0E141B; --warn:#F09A84; --f-fipav:#1B2A44; --f-pgs:#173125; --f-reg:#3A2E18; --d-fipav:#5B88D6; --d-pgs:#4AA774; --d-reg:#CC9338; color-scheme:dark}}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 var(--body);
@@ -58,7 +59,7 @@ tbody tr:first-child td{border-top:0}
 .time{font:600 20px/1.1 var(--display);font-variant-numeric:tabular-nums;white-space:nowrap}
 .team-cell{display:flex;gap:8px;align-items:center;font-weight:600}
 .team-cell small{color:var(--muted);font-weight:500}
-.dot{width:10px;height:10px;border-radius:50%;flex:none}
+.dot{width:10px;height:10px;border-radius:50%;flex:none;box-shadow:inset 0 0 0 1px rgba(0,0,0,.18)}
 .opp{font-weight:500}
 .vs{display:none;color:var(--muted)}
 .ha{display:inline-block;margin-left:8px;font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:1px 5px}
@@ -102,7 +103,7 @@ td.c-res{text-align:center}
 .seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.12)}
 .print-head{display:none}
 @media print{
-  :root:root{--bg:#fff;--surface:#fff;--soft:#f0f0f0;--ink:#000;--muted:#444;--line:#999;--accent:#000;--accent-ink:#fff;--f-fipav:#E4EDFB;--f-pgs:#E3F3E8;--f-reg:#FBEFD9;color-scheme:light}
+  :root:root{--bg:#fff;--surface:#fff;--soft:#f0f0f0;--ink:#000;--muted:#444;--line:#999;--accent:#000;--accent-ink:#fff;--f-fipav:#E4EDFB;--f-pgs:#E3F3E8;--f-reg:#FBEFD9;--d-fipav:#6E9BE8;--d-pgs:#5DBB84;--d-reg:#E3A84A;color-scheme:light}
   @page{margin:12mm}
   body{padding:0;font-size:11pt;background:#fff;color:#000}
   .top,.filters,.note,.meta,.tabs{display:none!important}
@@ -162,7 +163,7 @@ const saveOff = () => { try { localStorage.setItem('partite-off', JSON.stringify
 const FONTI = {'f-fipav': 'FIPAV', 'f-pgs': 'PGS', 'f-reg': 'Regionale'};
 const fonteDi = t => /pgsmilano/i.test(t.url) ? 'f-pgs' : /matchshare|lombardia\.federvolley/i.test(t.url) ? 'f-reg' : 'f-fipav';
 const fonteId = id => { const t = D.squadre.find(s => s.id === id); return t ? fonteDi(t) : 'f-fipav'; };
-const colorOf = id => COLORS[Math.max(0, D.squadre.findIndex(s => s.id === id)) % COLORS.length];
+const colorOf = id => `var(--d-${fonteId(id).slice(2)})`;
 
 async function load(){
   try {
