@@ -13,10 +13,10 @@ let cat=null, caricato=false;
 function lista(voci, el, onPick){
   document.querySelectorAll('ul[role=listbox]').forEach(u=>u.remove());
   const ul=document.createElement('ul'); ul.setAttribute('role','listbox'); const ph=document.createElement('li'); ph.setAttribute('role','option'); ph.style.display='none'; ul.appendChild(ph);
-  voci.forEach(v=>{const li=document.createElement('li'); li.setAttribute('role','option'); li.textContent=v; li.onclick=()=>{ul.remove(); onPick(v)}; ul.appendChild(li)});
-  document.body.appendChild(ul);
+  voci.forEach(v=>{const li=document.createElement('li'); li.setAttribute('role','option'); li.textContent=v; li.onclick=()=>{ul._bd&&ul._bd.remove(); ul.remove(); onPick(v)}; ul.appendChild(li)});
+  const bd=document.createElement('div'); bd.className='bd'; bd.style.cssText='position:fixed;inset:0;z-index:10'; bd.onclick=()=>{ul.remove();bd.remove()}; ul.style.cssText='position:fixed;top:80px;left:300px;z-index:11;background:#fff;margin:0'; ul._bd=bd; document.body.appendChild(bd); document.body.appendChild(ul);
 }
-document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('ul[role=listbox]').forEach(u=>u.remove())});
+
 document.querySelector('[data-k=camp]').onclick=function(){lista(CAMP,this,v=>{this.textContent=v})};
 document.querySelector('[data-k=cat]').onclick=function(){ if(!caricato) return; lista(Object.keys(CAT),this,v=>{this.textContent=v;cat=v;document.getElementById('available-teams').value='';document.getElementById('out').innerHTML=''}) };
 setTimeout(()=>{caricato=true; document.querySelector('[data-k=cat]').textContent='Mista 2° Livello'; cat='Mista 2° Livello'},700);
