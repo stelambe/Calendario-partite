@@ -501,6 +501,14 @@ def main():
         etichetta = f"{s0['nome']} {s0['serie']}"
         print(f"Leggo {etichetta}: {s['url']}")
         try:
+            if s.get("fonte") == "manuale":
+                # calendario inserito a mano (sito non raggiungibile da GitHub)
+                f = RADICE / "data" / "manuale" / f"{s['id']}.json"
+                trovate = [{"id": s["id"], "squadra": s["etichetta"], "serie": s["serie"], **p}
+                           for p in json.loads(f.read_text(encoding="utf-8"))]
+                print(f"  manuale: {len(trovate)} partite")
+                partite += trovate
+                continue
             if s.get("fonte") == "matchshare":
                 tutte, elenco = leggi_matchshare(RUNTIME["ctx"], s["url"], s["id"])
                 nomi[s["id"]] = elenco

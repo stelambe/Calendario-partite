@@ -1,0 +1,236 @@
+[
+ {
+  "gara": "2561",
+  "data": "2026-10-24",
+  "ora": "20:30",
+  "casa_trasferta": "Casa",
+  "avversario": "BANCA CREMASCA E MANTOVANA (PG)",
+  "campo": "PALESTRA E. TOTI",
+  "indirizzo": "ARLUNO - VIA E. TOTI"
+ },
+ {
+  "gara": "2568",
+  "data": "2026-11-01",
+  "ora": "20:30",
+  "casa_trasferta": "Trasferta",
+  "avversario": "CERTOSA VOLLEY DF (SU)",
+  "campo": "PALESTRA COMUNALE",
+  "indirizzo": "CERTOSA DI PAVIA - VIA TOGLIATTI 12"
+ },
+ {
+  "gara": "2574",
+  "data": "2026-11-07",
+  "ora": "20:30",
+  "casa_trasferta": "Casa",
+  "avversario": "ASD GROSSMAN",
+  "campo": "PALESTRA E. TOTI",
+  "indirizzo": "ARLUNO - VIA E. TOTI"
+ },
+ {
+  "gara": "2582",
+  "data": "2026-11-15",
+  "ora": "18:00",
+  "casa_trasferta": "Trasferta",
+  "avversario": "UIV ACADEMY F",
+  "campo": "PALAZZETTO DELLO SPORT PICCOLE PAVESI.",
+  "indirizzo": "PAVIA - VIA TREVES 24"
+ },
+ {
+  "gara": "2588",
+  "data": "2026-11-21",
+  "ora": "20:30",
+  "casa_trasferta": "Casa",
+  "avversario": "MARSINA POLISPORTIVA SAN GIULIANO",
+  "campo": "PALESTRA E. TOTI",
+  "indirizzo": "ARLUNO - VIA E. TOTI"
+ },
+ {
+  "gara": "2598",
+  "data": "2026-11-29",
+  "ora": "18:00",
+  "casa_trasferta": "Trasferta",
+  "avversario": "FERLOG NEW VOLLEY PROJECT VIZZOLO (PG)",
+  "campo": "PALAZZETTO DELLO SPORT",
+  "indirizzo": "VIZZOLO PREDABISSI - VIA VERDI 16"
+ },
+ {
+  "gara": "2604",
+  "data": "2026-12-04",
+  "ora": "21:00",
+  "casa_trasferta": "Casa",
+  "avversario": "MC TERMOELETTRICA",
+  "campo": "PALESTRA E. TOTI",
+  "indirizzo": "ARLUNO - VIA E. TOTI"
+ },
+ {
+  "gara": "2612",
+  "data": "2026-12-12",
+  "ora": "17:00",
+  "casa_trasferta": "Trasferta",
+  "avversario": "BOCCONI SPORT F",
+  "campo": "BOCCONI SPORT CENTER",
+  "indirizzo": "MILANO - VIA TOSCANA, 30"
+ },
+ {
+  "gara": "2618",
+  "data": "2026-12-19",
+  "ora": "20:30",
+  "casa_trasferta": "Casa",
+  "avversario": "PGC CILAVEGNA",
+  "campo": "PALESTRA E. TOTI",
+  "indirizzo": "ARLUNO - VIA E. TOTI"
+ },
+ {
+  "gara": "2627",
+  "data": "2027-01-09",
+  "ora": "20:30",
+  "casa_trasferta": "Trasferta",
+  "avversario": "ANECO VISETTE VOLLEY DF - SU (SU)",
+  "campo": "SCUOLA ELEMENTARE VIGHIGNOLO",
+  "indirizzo": "SETTIMO MILANESE - VIA AIRAGHI"
+ },
+ {
+  "gara": "2630",
+  "data": "2027-01-16",
+  "ora": "20:00",
+  "casa_trasferta": "Trasferta",
+  "avversario": "PROGETTO VOLLEY LAINATE DF",
+  "campo": "SCUOLE MEDIE WALTER TOBAGI",
+  "indirizzo": "LAINATE - VIA CAIROLI 33"
+ },
+ {
+  "gara": "2637",
+  "data": "2027-01-23",
+  "ora": "20:30",
+  "casa_trasferta": "Casa",
+  "avversario": "SSD BASIGLIO VOLLEY",
+  "campo": "PALESTRA E. TOTI",
+  "indirizzo": "ARLUNO - VIA E. TOTI"
+ },
+ {
+  "gara": "2554",
+  "data": "2027-01-30",
+  "ora": "21:15",
+  "casa_trasferta": "Trasferta",
+  "avversario": "SANT'ALBERTO ATLAS",
+  "campo": "PALAZZETTO COMUNALE",
+  "indirizzo": "SAN MARTINO IN STRADA - VIA MATTEI 7"
+ },
+ {
+  "gara": "2721",
+  "data": "2027-02-06",
+  "ora": "20:30",
+  "casa_trasferta": "Casa",
+  "avversario": "PROGETTO VOLLEY LAINATE DF",
+  "campo": "PALESTRA E. TOTI",
+  "indirizzo": "ARLUNO - VIA E. TOTI"
+ },
+ {
+  "gara": "2645",
+  "data": "2027-02-13",
+  "ora": "20:30",
+  "casa_trasferta": "Casa",
+  "avversario": "SANT'ALBERTO ATLAS",
+  "campo": "PALESTRA E. TOTI",
+  "indirizzo": "ARLUNO - VIA E. TOTI"
+ },
+ {
+  "gara": "2652",
+  "data": "2027-02-20",
+  "ora": "20:00",
+  "casa_trasferta": "Trasferta",
+  "avversario": "BANCA CREMASCA E MANTOVANA (PG)",
+  "campo": "PALAZZETTO DELLO SPORT P. BERTONI",
+  "indirizzo": "CREMA - VIA SINIGAGLIA 6"
+ },
+ {
+  "gara": "2659",
+  "data": "2027-02-27",
+  "ora": "20:30",
+  "casa_trasferta": "Casa",
+  "avversario": "CERTOSA VOLLEY DF (SU)",
+  "campo": "PALESTRA E. TOTI",
+  "indirizzo": "ARLUNO - VIA E. TOTI"
+ },
+ {
+  "gara": "2665",
+  "data": "2027-03-06",
+  "ora": "17:00",
+  "casa_trasferta": "Trasferta",
+  "avversario": "ASD GROSSMAN",
+  "campo": "SPORT VILLAGE",
+  "indirizzo": "ASSAGO - VIA DI VITTORIO"
+ },
+ {
+  "gara": "2673",
+  "data": "2027-03-13",
+  "ora": "20:30",
+  "casa_trasferta": "Casa",
+  "avversario": "UIV ACADEMY F",
+  "campo": "PALESTRA E. TOTI",
+  "indirizzo": "ARLUNO - VIA E. TOTI"
+ },
+ {
+  "gara": "2679",
+  "data": "2027-03-20",
+  "ora": "21:15",
+  "casa_trasferta": "Trasferta",
+  "avversario": "MARSINA POLISPORTIVA SAN GIULIANO",
+  "campo": "PALESTRA SCUOLA ELEMENTARE RODARI",
+  "indirizzo": "SAN GIULIANO MILANESE - VIA GOGOL"
+ },
+ {
+  "gara": "2689",
+  "data": "2027-04-03",
+  "ora": "20:30",
+  "casa_trasferta": "Casa",
+  "avversario": "FERLOG NEW VOLLEY PROJECT VIZZOLO (PG)",
+  "campo": "PALESTRA E. TOTI",
+  "indirizzo": "ARLUNO - VIA E. TOTI"
+ },
+ {
+  "gara": "2695",
+  "data": "2027-04-10",
+  "ora": "20:30",
+  "casa_trasferta": "Trasferta",
+  "avversario": "MC TERMOELETTRICA",
+  "campo": "PALAZZETTO DELLO SPORT PICCOLE PAVESI.",
+  "indirizzo": "PAVIA - VIA TREVES 24"
+ },
+ {
+  "gara": "2703",
+  "data": "2027-04-17",
+  "ora": "20:30",
+  "casa_trasferta": "Casa",
+  "avversario": "BOCCONI SPORT F",
+  "campo": "PALESTRA E. TOTI",
+  "indirizzo": "ARLUNO - VIA E. TOTI"
+ },
+ {
+  "gara": "2709",
+  "data": "2027-04-24",
+  "ora": "20:30",
+  "casa_trasferta": "Trasferta",
+  "avversario": "PGC CILAVEGNA",
+  "campo": "PALASPORT",
+  "indirizzo": "CILAVEGNA - VIA GIOVANNI FALZONI"
+ },
+ {
+  "gara": "2718",
+  "data": "2027-05-01",
+  "ora": "20:30",
+  "casa_trasferta": "Casa",
+  "avversario": "ANECO VISETTE VOLLEY DF - SU (SU)",
+  "campo": "PALESTRA E. TOTI",
+  "indirizzo": "ARLUNO - VIA E. TOTI"
+ },
+ {
+  "gara": "2728",
+  "data": "2027-05-15",
+  "ora": "21:00",
+  "casa_trasferta": "Trasferta",
+  "avversario": "SSD BASIGLIO VOLLEY",
+  "campo": "PALESTRA SCUOLA PRIMARIA DI MILANOTRE",
+  "indirizzo": "BASIGLIO - PIAZZA LEONARDO DA VINCI 1"
+ }
+]

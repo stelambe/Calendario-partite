@@ -14,5 +14,5 @@
   {"id": "pgs-u12-blu", "fonte": "pgs", "nome": "Arcus Volley blu", "serie": "U12", "campionato": "Invernale 2026/2027", "categoria": "U12", "url": "https://volley.pgsmilano.org/calendari"},
   {"id": "pgs-u13-blu", "fonte": "pgs", "nome": "Arcus Volley blu", "serie": "U13", "campionato": "Invernale 2026/2027", "categoria": "U13", "url": "https://volley.pgsmilano.org/calendari", "cerca": "Arcus Volley"},
   {"id": "pgs-mista2-cusago", "fonte": "pgs", "nome": "New VMNP Cusago", "serie": "Mista 2° livello", "campionato": "Invernale 2026/2027", "categoria": "Mista 2° livello", "url": "https://volley.pgsmilano.org/calendari"},
-  {"id": "lombardia-dfg", "fonte": "matchshare", "nome": "Landoil Arcus Volley", "cerca": "Arcus Volley", "serie": "Serie DF", "campionato": "Serie D Femminile Girone G", "url": "https://srv6.matchshare.it/stats_test/rest_api/fm_calendario?public=1&sid=645&client_name=fipavlombardia2"}
+  {"id": "lombardia-dfg", "fonte": "manuale", "nome": "Landoil Arcus Volley", "cerca": "Arcus Volley", "serie": "Serie DF", "campionato": "Serie D Femminile Girone G", "url": "https://srv6.matchshare.it/stats_test/rest_api/fm_calendario?public=1&sid=645&client_name=fipavlombardia2"}
 ]
