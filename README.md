@@ -30,3 +30,7 @@ Scheda Actions > Aggiorna calendari > Run workflow.
 
 ## Se qualcosa non va
 Se un calendario non si legge, nella cartella `debug` compaiono la pagina salvata e una schermata.
+
+
+## Calendario inserito a mano (Landoil Arcus Volley)
+Il sito del regionale (matchshare.it) blocca i server di GitHub (Cloudflare). Per questa squadra `fonte` è `"manuale"` e le partite stanno in `data/manuale/lombardia-dfg.json`: per aggiornarle si sostituisce quel file con il nuovo calendario.
