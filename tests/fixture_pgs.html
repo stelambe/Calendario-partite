@@ -12,7 +12,7 @@ const TAB_NEW="<table class=\"MuiTable-root css-11wtp55\"><thead class=\"MuiTabl
 let cat=null, caricato=false;
 function lista(voci, el, onPick){
   document.querySelectorAll('ul[role=listbox]').forEach(u=>u.remove());
-  const ul=document.createElement('ul'); ul.setAttribute('role','listbox');
+  const ul=document.createElement('ul'); ul.setAttribute('role','listbox'); const ph=document.createElement('li'); ph.setAttribute('role','option'); ph.style.display='none'; ul.appendChild(ph);
   voci.forEach(v=>{const li=document.createElement('li'); li.setAttribute('role','option'); li.textContent=v; li.onclick=()=>{ul.remove(); onPick(v)}; ul.appendChild(li)});
   document.body.appendChild(ul);
 }

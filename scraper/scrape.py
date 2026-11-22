@@ -196,7 +196,8 @@ def prova(file_html):
 #  PGS Milano (volley.pgsmilano.org): scelta di campionato, categoria e squadra
 # ---------------------------------------------------------------------
 PGS_URL = "https://volley.pgsmilano.org/calendari"
-SEL_LISTA = 'ul[role="listbox"] li[role="option"]'
+# la prima voce di ogni menu e un segnaposto vuoto e nascosto (display: none): va ignorata
+SEL_LISTA = 'ul[role="listbox"] li[role="option"]:not([style*="display: none"])'
 
 JS_TAB_PGS = """
 () => {
