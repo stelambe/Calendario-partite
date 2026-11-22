@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-22T22:01:19+00:00",
+ "aggiornato": "2026-11-22T22:12:23+00:00",
  "problemi": [],
  "squadre": [
   {
@@ -110,8 +110,8 @@
    "ora": "14:30",
    "casa_trasferta": "Trasferta",
    "avversario": "PALLAVOLO CANEGRATE",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "PALESTRA COMUNALE FALCONE BORSELLINO",
+   "indirizzo": "CANEGRATE - VIA E. TOTI"
   },
   {
    "id": "pgs-u13-blu",
@@ -123,8 +123,8 @@
    "ora": "15:00",
    "casa_trasferta": "Casa",
    "avversario": "NJOY VOLLEY",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "PALA ARLUNO",
+   "indirizzo": "ARLUNO - VIA ENRICO TOTI 2"
   },
   {
    "id": "arcus-19f",
@@ -162,8 +162,8 @@
    "ora": "14:30",
    "casa_trasferta": "Trasferta",
    "avversario": "VOL. DON BOSCO BUSCATE",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "ORATORIO DON BOSCO",
+   "indirizzo": "BUSCATE - VIALE RISORGIMENTO 2"
   },
   {
    "id": "arcus-17f",
@@ -188,8 +188,8 @@
    "ora": "14:30",
    "casa_trasferta": "Trasferta",
    "avversario": "CIEF MAGENTA",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "PALESTRA COMUNALE SCUOLA SECONDARIA 4 GIUGNO 1859",
+   "indirizzo": "MAGENTA - VIA GIOVANNI BOCCACCIO 24"
   },
   {
    "id": "pgs-u13-blu",
@@ -240,8 +240,8 @@
    "ora": "21:00",
    "casa_trasferta": "Casa",
    "avversario": "ASD SAN GIUSEPPE TRECATE",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "PALESTRA COMUNALE",
+   "indirizzo": "CUSAGO - VIA BAGGIO 2"
   },
   {
    "id": "pgs-u12-oro",
@@ -253,8 +253,8 @@
    "ora": "11:00",
    "casa_trasferta": "Trasferta",
    "avversario": "ROZZANO VOLLEY ASD",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "PALAZZETTO ROZZANO",
+   "indirizzo": "ROZZANO - PIAZZA GIOVANNI FOGLIA 1"
   },
   {
    "id": "pgs-u11-oro",
@@ -266,8 +266,8 @@
    "ora": "15:00",
    "casa_trasferta": "Trasferta",
    "avversario": "ASCOR BETTOLINO",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "CENTRO SPORTIVO COMUNALE",
+   "indirizzo": "POGLIANO MILANESE - VIA CAMILLO CHIESA 4"
   },
   {
    "id": "arcus-14f",
@@ -304,8 +304,8 @@
    "ora": "11:00",
    "casa_trasferta": "Trasferta",
    "avversario": "DST VOLLEY TURBIGO",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "ORATORIO SAN LUIGI SALONE ABBA'",
+   "indirizzo": "TURBIGO - VIA ALLA CHIESA 5"
   },
   {
    "id": "pgs-u11-blu",
@@ -317,8 +317,8 @@
    "ora": "14:30",
    "casa_trasferta": "Casa",
    "avversario": "PRO VOLLEY",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "PALA ARLUNO",
+   "indirizzo": "ARLUNO - VIA ENRICO TOTI 2"
   },
   {
    "id": "pgs-u13-blu",
@@ -330,8 +330,8 @@
    "ora": "14:30",
    "casa_trasferta": "Trasferta",
    "avversario": "VISETTE VOLLEY",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "SCUOLA MEDIA PAOLO SARPI",
+   "indirizzo": "SETTIMO MILANESE - VIA GRANDI 5"
   },
   {
    "id": "arcus-17f",
@@ -447,8 +447,8 @@
    "ora": "10:00",
    "casa_trasferta": "Trasferta",
    "avversario": "OLYMPIA BUCCINASCO",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "PALESTRA SCOLASTICA ROBARELLO",
+   "indirizzo": "BUCCINASCO - VIA DEGLI ALPINI 48"
   },
   {
    "id": "pgs-u12-oro",
@@ -473,8 +473,8 @@
    "ora": "15:00",
    "casa_trasferta": "Trasferta",
    "avversario": "POLIS. CORBETTA 2015",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "PALAZZETTO",
+   "indirizzo": "CORBETTA - VIA FILIPETTI 5"
   },
   {
    "id": "arcus-19f",
@@ -511,8 +511,8 @@
    "ora": "21:15",
    "casa_trasferta": "Trasferta",
    "avversario": "NJOY VOLLEY CREW",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "SC. MEDIA",
+   "indirizzo": "SEDRIANO - VIA ROGERIO DA SEDRIANO, 12"
   },
   {
    "id": "garbagnate-1df",
@@ -537,8 +537,8 @@
    "ora": "15:00",
    "casa_trasferta": "Trasferta",
    "avversario": "VOMIEN",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "PALESTRA SCUOLE RODARI",
+   "indirizzo": "LEGNANO - VIA DEI SALICI N°8"
   },
   {
    "id": "pgs-u12-oro",
@@ -550,8 +550,8 @@
    "ora": "15:00",
    "casa_trasferta": "Trasferta",
    "avversario": "POLIS. CORBETTA 2015",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "PALAZZETTO",
+   "indirizzo": "CORBETTA - VIA FILIPETTI 5"
   },
   {
    "id": "pgs-u13-blu",
@@ -563,8 +563,8 @@
    "ora": "15:00",
    "casa_trasferta": "Trasferta",
    "avversario": "OSG ABBIATEGRASSO",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "ORATORIO SAN GAETANO",
+   "indirizzo": "ABBIATEGRASSO - VIA C.M. MAGGI 17"
   },
   {
    "id": "pgs-u12-blu",
@@ -576,8 +576,8 @@
    "ora": "15:30",
    "casa_trasferta": "Trasferta",
    "avversario": "S. MASSIMILIANO KOLBE",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "SCUOLE ELEMENTARI DON MILANI LEGNANO",
+   "indirizzo": "LEGNANO - VIA LEONIDA BISSOLATI 15"
   },
   {
    "id": "arcus-15f",
@@ -744,8 +744,8 @@
    "ora": "15:00",
    "casa_trasferta": "Trasferta",
    "avversario": "GSO VILLA CORTESE",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "PALESTRA SCUOLE ELEMENTARI",
+   "indirizzo": "VILLA CORTESE - VIA B.SPERONI, 1"
   },
   {
    "id": "pgs-u12-oro",
@@ -757,8 +757,8 @@
    "ora": "15:00",
    "casa_trasferta": "Trasferta",
    "avversario": "PRO VOLLEY BIANCA",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "I.T.C. LOMBARDINI (QUARTIERE FOLLETTA)",
+   "indirizzo": "ABBIATEGRASSO - VIA VIVALDI 8"
   },
   {
    "id": "arcus-17f",
@@ -809,8 +809,8 @@
    "ora": "18:00",
    "casa_trasferta": "Trasferta",
    "avversario": "NJOY VOLLEY",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "SC. MEDIA",
+   "indirizzo": "SANTO STEFANO TICINO - VIA MILANO, 23"
   },
   {
    "id": "pgs-u11-oro",
@@ -951,8 +951,8 @@
    "ora": "15:00",
    "casa_trasferta": "Trasferta",
    "avversario": "S.O.I. INVERUNO",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "SCUOLA ELEMENTARE DON MILANI",
+   "indirizzo": "INVERUNO - VIA MONTESSORI"
   },
   {
    "id": "pgs-u12-oro",
@@ -964,8 +964,8 @@
    "ora": "15:00",
    "casa_trasferta": "Casa",
    "avversario": "PRO VOLLEY BIANCA",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "SCUOLA PRIMARIA MONACA",
+   "indirizzo": "CESANO BOSCONE - VIA VESPUCCI 11"
   },
   {
    "id": "pgs-u13-blu",
@@ -977,8 +977,8 @@
    "ora": "15:00",
    "casa_trasferta": "Trasferta",
    "avversario": "POL. MAGENTA 2012",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "VIA ALLA CHIESA",
+   "indirizzo": "PONTENUOVO DI MAGENTA"
   },
   {
    "id": "pgs-u12-blu",
@@ -990,8 +990,8 @@
    "ora": "15:30",
    "casa_trasferta": "Casa",
    "avversario": "VOL. DON BOSCO BUSCATE",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "PALA ARLUNO",
+   "indirizzo": "ARLUNO - VIA ENRICO TOTI 2"
   },
   {
    "id": "arcus-13f-oro",
@@ -1106,8 +1106,8 @@
    "ora": "20:15",
    "casa_trasferta": "Trasferta",
    "avversario": "ASD SAN GIUSEPPE TRECATE",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "PALESTRA DORIA",
+   "indirizzo": "TRECATE - VIA DORIA 6"
   },
   {
    "id": "arcus-1jf",
@@ -1132,8 +1132,8 @@
    "ora": "21:15",
    "casa_trasferta": "Trasferta",
    "avversario": "AURORA OSGB",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "PALESTRA GARGHETTI",
+   "indirizzo": "ABBIATEGRASSO - OSGB - VIA S.G.BOSCO 21"
   },
   {
    "id": "garbagnate-1df",
@@ -1210,8 +1210,8 @@
    "ora": "10:30",
    "casa_trasferta": "Trasferta",
    "avversario": "PRO VOLLEY",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "PALESTRA OMNICOMPRENSIVO",
+   "indirizzo": "ABBIATEGRASSO - STRADA CHIAPPANA 7"
   },
   {
    "id": "pgs-u12-oro",
@@ -1223,8 +1223,8 @@
    "ora": "11:00",
    "casa_trasferta": "Trasferta",
    "avversario": "CIEF MAGENTA",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "PALESTRA COMUNALE SCUOLA SECONDARIA 4 GIUGNO 1859",
+   "indirizzo": "MAGENTA - VIA GIOVANNI BOCCACCIO 24"
   },
   {
    "id": "pgs-u13-blu",
@@ -1364,8 +1364,8 @@
    "ora": "11:00",
    "casa_trasferta": "Trasferta",
    "avversario": "DST VOLLEY TURBIGO",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "ORATORIO SAN LUIGI SALONE ABBA'",
+   "indirizzo": "TURBIGO - VIA ALLA CHIESA 5"
   },
   {
    "id": "arcus-13f-blu",
@@ -1481,8 +1481,8 @@
    "ora": "15:00",
    "casa_trasferta": "Trasferta",
    "avversario": "POL. S. GIORGIO CUGGIONO",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "PALACOSMEL",
+   "indirizzo": "CUGGIONO - PALESTRA DELL'ORATORIO - VIA C. CICOGNA 8/D"
   },
   {
    "id": "arcus-14f",
@@ -1584,8 +1584,8 @@
    "ora": "15:00",
    "casa_trasferta": "Trasferta",
    "avversario": "OLYMPIA BUCCINASCO",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "PALESTRA SCUOLA PRIMARIA I MAGGIO",
+   "indirizzo": "BUCCINASCO - VIA LIGURIA 2"
   },
   {
    "id": "arcus-19f",
@@ -1649,8 +1649,8 @@
    "ora": "21:00",
    "casa_trasferta": "Trasferta",
    "avversario": "ANNI VERDI 95 NERA",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "PALESTRA SCUOLA ELEM",
+   "indirizzo": "NERVIANO - VIA DI VITTORIO"
   },
   {
    "id": "garbagnate-1df",
@@ -1675,8 +1675,8 @@
    "ora": "15:00",
    "casa_trasferta": "Trasferta",
    "avversario": "OSG ABBIATEGRASSO",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "ORATORIO SAN GAETANO",
+   "indirizzo": "ABBIATEGRASSO - VIA C.M. MAGGI 17"
   },
   {
    "id": "arcus-17f",
@@ -1817,8 +1817,8 @@
    "ora": "14:30",
    "casa_trasferta": "Casa",
    "avversario": "S.O.I. INVERUNO",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "SCUOLA PRIMARIA MONACA",
+   "indirizzo": "CESANO BOSCONE - VIA VESPUCCI 11"
   },
   {
    "id": "arcus-15f",
@@ -1869,8 +1869,8 @@
    "ora": "17:30",
    "casa_trasferta": "Trasferta",
    "avversario": "NJOY VOLLEY",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "SC. MEDIA",
+   "indirizzo": "SANTO STEFANO TICINO - VIA MILANO, 23"
   },
   {
    "id": "lombardia-dfg",
@@ -1946,8 +1946,8 @@
    "ora": "20:15",
    "casa_trasferta": "Trasferta",
    "avversario": "GSO OSSONA",
-   "campo": "",
-   "indirizzo": ""
+   "campo": "PALESTRA COMUNALE",
+   "indirizzo": "CASOREZZO - P.ZZA SALVO D'ACQUISTO"
   },
   {
    "id": "garbagnate-1df",
